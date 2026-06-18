@@ -1,0 +1,251 @@
+/* ============================================================
+   ADMIN PREMIUM LUXURY STYLING SYSTEM
+   Isolates admin panel with a luxury Gold/Ink/Charcoal theme
+   Matching the core brand identity of Zafer Balıkçılık Artur
+   ============================================================ */
+
+.admin-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #070e14;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(201, 163, 107, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(201, 163, 107, 0.02) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(6, 11, 16, 0.8) 0px, transparent 100%);
+  color: #faf5ea;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif !important;
+  display: flex;
+}
+
+/* Base resets inside admin wrapper to prevent public style leaks */
+.admin-wrapper * {
+  box-sizing: border-box;
+  cursor: default !important;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif !important;
+}
+
+.admin-wrapper a,
+.admin-wrapper button,
+.admin-wrapper select,
+.admin-wrapper input,
+.admin-wrapper textarea,
+.admin-wrapper [role="button"],
+.admin-wrapper label {
+  cursor: pointer !important;
+}
+
+/* Reset public typography leaks and replace with premium typography */
+.admin-wrapper h1 {
+  font-family: var(--font-sans), system-ui, sans-serif !important;
+  font-size: 1.35rem !important;
+  font-weight: 600 !important;
+  line-height: 1.8rem !important;
+  letter-spacing: -0.01em !important;
+  color: #faf5ea !important;
+  margin: 0 !important;
+  text-transform: none !important;
+}
+
+.admin-wrapper h2 {
+  font-family: var(--font-display), "Fraunces", Georgia, serif !important;
+  font-size: 1.6rem !important;
+  font-weight: 700 !important;
+  line-height: 2.2rem !important;
+  color: #faf5ea !important;
+  margin: 0 !important;
+  text-transform: none !important;
+}
+
+.admin-wrapper h3 {
+  font-family: var(--font-display), "Fraunces", Georgia, serif !important;
+  font-size: 1.15rem !important;
+  font-weight: 600 !important;
+  line-height: 1.5rem !important;
+  color: #faf5ea !important;
+  margin: 0 !important;
+  text-transform: none !important;
+}
+
+.admin-wrapper h4 {
+  font-family: var(--font-sans), system-ui, sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  line-height: 1.25rem !important;
+  color: #faf5ea !important;
+  margin: 0 !important;
+  text-transform: none !important;
+}
+
+.admin-wrapper p {
+  font-size: 0.85rem !important;
+  line-height: 1.5rem !important;
+  color: #8ba3b5 !important;
+  margin: 0 !important;
+  letter-spacing: normal !important;
+}
+
+/* Header Override resets */
+.admin-wrapper header,
+.admin-wrapper header#header {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  z-index: 30 !important;
+  padding: 0 !important;
+  background: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition: none !important;
+  display: flex !important;
+  height: auto !important;
+  border-bottom: none !important;
+}
+
+/* Button & Link resets */
+.admin-wrapper a,
+.admin-wrapper button {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  border-radius: 0.5rem;
+  background-image: none !important;
+  box-shadow: none;
+  border: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.admin-wrapper a:hover,
+.admin-wrapper button:hover {
+  background-image: none !important;
+}
+
+/* Reset public container spacing */
+.admin-wrapper .container {
+  max-width: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: auto !important;
+  background: none !important;
+}
+
+/* Inputs & Form Fields overrides - Sleek Glassmorphism style */
+.admin-wrapper input[type="text"],
+.admin-wrapper input[type="email"],
+.admin-wrapper input[type="password"],
+.admin-wrapper input[type="number"],
+.admin-wrapper input[type="time"],
+.admin-wrapper input[type="date"],
+.admin-wrapper input[type="search"],
+.admin-wrapper select,
+.admin-wrapper textarea {
+  background-color: #060b10 !important;
+  border: 1px solid rgba(201, 163, 107, 0.15) !important;
+  color: #faf5ea !important;
+  border-radius: 0.5rem !important;
+  padding: 0.65rem 0.9rem !important;
+  outline: none !important;
+  font-size: 0.85rem !important;
+  font-family: var(--font-sans), sans-serif !important;
+  width: 100%;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+}
+
+.admin-wrapper input:focus,
+.admin-wrapper select:focus,
+.admin-wrapper textarea:focus {
+  border-color: #c9a36b !important;
+  background-color: #080f16 !important;
+  box-shadow: 0 0 0 2px rgba(201, 163, 107, 0.15) !important;
+}
+
+.admin-wrapper input::placeholder,
+.admin-wrapper textarea::placeholder {
+  color: #506573 !important;
+}
+
+.admin-wrapper input[type="checkbox"] {
+  accent-color: #c9a36b !important;
+  cursor: pointer !important;
+}
+
+/* Custom Table Design */
+.admin-wrapper table {
+  border-collapse: collapse !important;
+  width: 100% !important;
+  margin: 0 !important;
+  font-size: 0.85rem !important;
+}
+
+.admin-wrapper th {
+  background-color: rgba(6, 11, 16, 0.6) !important;
+  color: #c9a36b !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.08em !important;
+  border-bottom: 1px solid rgba(201, 163, 107, 0.15) !important;
+  padding: 0.85rem 1rem !important;
+  text-align: left;
+}
+
+.admin-wrapper td {
+  padding: 1rem !important;
+  border-bottom: 1px solid rgba(201, 163, 107, 0.08) !important;
+  color: #dfd8cb !important;
+  vertical-align: middle !important;
+  transition: background-color 0.15s ease;
+}
+
+.admin-wrapper tr:hover td {
+  background-color: rgba(201, 163, 107, 0.02) !important;
+}
+
+.admin-wrapper tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* Modals */
+.admin-wrapper .modal-backdrop {
+  background-color: rgba(4, 7, 10, 0.85) !important;
+  backdrop-filter: blur(12px) !important;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 100;
+}
+
+.admin-wrapper .modal-content {
+  background-color: #0a141d !important;
+  border: 1px solid rgba(201, 163, 107, 0.2) !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.8) !important;
+  width: 100%;
+  max-width: 32rem;
+  padding: 1.75rem !important;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Scrollbar styles for luxury experience */
+.admin-wrapper ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.admin-wrapper ::-webkit-scrollbar-track {
+  background: rgba(7, 14, 20, 0.5);
+}
+
+.admin-wrapper ::-webkit-scrollbar-thumb {
+  background: rgba(201, 163, 107, 0.2);
+  border-radius: 3px;
+}
+
+.admin-wrapper ::-webkit-scrollbar-thumb:hover {
+  background: rgba(201, 163, 107, 0.4);
+}

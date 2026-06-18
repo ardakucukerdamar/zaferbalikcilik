@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #faf5ea;
+  --color-paper-2: #f3eada;
+  --color-paper-3: #ebdec3;
+  --color-ink: #243341;
+  --color-ink-deep: #1a2733;
+  --color-ink-soft: #506573;
+  --color-gold: #c9a36b;
+  --color-gold-light: #e6c08a;
+  --color-gold-deep: #9d7d49;
+  --color-bronze: #a67950;
+  --color-moss: #3a5849;
+  --color-rust: #c25234;
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+}
