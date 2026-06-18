@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a141d" />
+  <title>Menü · Zafer Balıkçılık Artur</title>
+  <meta name="description" content="Zafer Balıkçılık Artur menüsü — günlük taze balıklar, soğuk ve sıcak mezeler, ızgaralar, tava ve içecekler. Karaağaç, Balıkesir." />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23c9a36b'/%3E%3Ctext x='50%25' y='62%25' text-anchor='middle' font-size='38' font-family='Georgia' fill='%230a141d' font-weight='900' font-style='italic'%3EZ%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,600;1,9..144,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { corePlugins: { preflight: false } }
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="menu.css" />
+</head>
+<body class="menu-page">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-anchor" viewBox="0 0 64 64">
+        <path d="M32 6a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0 10v32m-12-20h24M12 38c2 9 9 14 20 14s18-5 20-14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-arrow-left" viewBox="0 0 24 24">
+        <path d="M19 12H5m6 6-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-search" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24">
+        <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-wa" viewBox="0 0 24 24">
+        <path d="M12 2a10 10 0 0 0-8.94 14.46L2 22l5.66-1.04A10 10 0 1 0 12 2zm5.13 14.42c-.22.62-1.27 1.18-1.78 1.22-.45.04-1.02.05-1.65-.1-.38-.1-.87-.26-1.5-.53-2.65-1.14-4.38-3.81-4.51-3.99-.13-.18-1.08-1.43-1.08-2.73 0-1.3.68-1.94.93-2.21.24-.27.53-.34.71-.34l.51.01c.16 0 .39-.06.6.46l.85 2.06c.07.13.11.29.02.46l-.26.4c-.13.18-.27.4-.13.66.13.27.6.99 1.29 1.6.88.78 1.62 1.02 1.86 1.13.24.1.38.09.52-.06l.62-.72c.18-.22.36-.18.62-.09l1.96.93c.27.13.45.2.51.31.07.13.07.73-.15 1.35z" fill="currentColor"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ============= MENU HERO ============= -->
+  <header class="m-hero">
+    <div class="m-hero-bg" aria-hidden="true"></div>
+    <div class="m-hero-grad" aria-hidden="true"></div>
+
+    <div class="container m-hero-inner">
+      <a href="index.html" class="m-back">
+        <svg width="16" height="16"><use href="#i-arrow-left"/></svg>
+        <span>Ana sayfa</span>
+      </a>
+
+      <div class="m-hero-brand">
+        <span class="brand-mark"><svg width="22" height="22"><use href="#i-anchor"/></svg></span>
+        <div>
+          <strong>Zafer Balıkçılık</strong>
+          <small>Karaağaç · Balıkesir</small>
+        </div>
+      </div>
+
+      <p class="m-kicker">№ 04 · Menü</p>
+      <h1 class="m-title"><span>Mevsim</span> <em>sofrası.</em></h1>
+      <p class="m-sub">Mevsim balığı, ev yapımı meze, kömürde közleme. Fiyatlar bilgi amaçlıdır; günlük tedarike göre değişebilir. Güncel için telefonla doğrulayın.</p>
+
+      <div class="m-hero-actions">
+        <a href="tel:+905327985244" class="btn btn-gold">Ara · 0532 798 52 44</a>
+        <a href="https://wa.me/905327985244?text=Merhaba,%20rezervasyon%20yapmak%20istiyorum." target="_blank" rel="noopener" class="btn btn-wa">
+          <svg width="16" height="16"><use href="#i-wa"/></svg>
+          <span>WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============= STICKY TOOLBAR ============= -->
+  <div class="m-toolbar" id="mToolbar">
+    <div class="container m-toolbar-inner">
+      <nav class="m-cats" id="mCats" aria-label="Kategoriler">
+        <a href="#bugun" data-cat="bugun" class="active">Bugün</a>
+        <a href="#mezeler" data-cat="mezeler">Soğuk Mezeler</a>
+        <a href="#sicak" data-cat="sicak">Sıcak Başlangıçlar</a>
+        <a href="#izgara" data-cat="izgara">Izgaralar</a>
+        <a href="#tava" data-cat="tava">Tava &amp; Kızartma</a>
+        <a href="#salata" data-cat="salata">Salatalar</a>
+        <a href="#icecek" data-cat="icecek">İçecekler</a>
+        <a href="#tatli" data-cat="tatli">Tatlı</a>
+      </nav>
+
+      <div class="m-tool-actions">
+        <div class="m-search">
+          <svg width="15" height="15"><use href="#i-search"/></svg>
+          <input id="mSearch" type="search" placeholder="Ara: çupra, haydari, rakı…" />
+          <button id="mSearchClear" aria-label="Temizle" hidden><svg width="14" height="14"><use href="#i-close"/></svg></button>
+        </div>
+        <div class="m-filters">
+          <button class="m-chip active" data-filter="all">Tümü</button>
+          <button class="m-chip" data-filter="sef">Şef</button>
+          <button class="m-chip" data-filter="mevsim">Mevsim</button>
+          <button class="m-chip" data-filter="vegan">Vegan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============= MENU CONTENT ============= -->
+  <main class="m-main">
+    <div class="container">
+
+      <!-- BUGÜN -->
+      <section class="m-cat" id="bugun">
+        <header class="m-cat-head">
+          <span class="m-cat-num">№ 01</span>
+          <h2 class="display"><em>Bugünün</em> önerileri</h2>
+          <p>Sabah tezgâhına gelen, ustanın seçtiği üç imza tabak.</p>
+        </header>
+
+        <div class="m-feature">
+          <div class="mf-card mf-card-lg" data-tags="sef mevsim">
+            <div class="mf-img" style="background-image:url('https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1400&q=85')">
+              <span class="mf-stamp">şefin imzası</span>
+            </div>
+            <div class="mf-body">
+              <div class="mf-head">
+                <span class="mf-num">01</span>
+                <h3>Kömürde Çupra Izgara</h3>
+                <span class="mf-price"><i>₺</i>mevsim</span>
+              </div>
+              <p>Günün tezgâhından, tuzlu dinlendirme + kömür közünde 12–14 dk. Yanında zeytinyağlı semizotu, deniz börülcesi, roka.</p>
+              <ul class="mf-tags">
+                <li>kömür közü</li><li>mevsim balığı</li><li>iki kişilik</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mf-card" data-tags="sef">
+            <div class="mf-img mf-img-sm" style="background-image:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=85')"></div>
+            <div class="mf-body">
+              <div class="mf-head">
+                <span class="mf-num">02</span>
+                <h3>Karides Güveç</h3>
+                <span class="mf-price"><i>₺</i>—</span>
+              </div>
+              <p>Domates, kaşar, taze fesleğen. Sıcak başlangıç; ekmek yoldaşı.</p>
+              <ul class="mf-tags"><li>sıcak</li><li>paylaşımlı</li></ul>
+            </div>
+          </div>
+
+          <div class="mf-card" data-tags="mevsim">
+            <div class="mf-img mf-img-sm" style="background-image:url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=900&q=85')"></div>
+            <div class="mf-body">
+              <div class="mf-head">
+                <span class="mf-num">03</span>
+                <h3>Lakerda · İnce Dilim</h3>
+                <span class="mf-price"><i>₺</i>—</span>
+              </div>
+              <p>Palamutun tuzlanmış hâli. Soğan, dereotu, limon. Rakı yoldaşı.</p>
+              <ul class="mf-tags"><li>klasik</li><li>balık mezesi</li></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SOĞUK MEZELER -->
+      <section class="m-cat" id="mezeler">
+        <header class="m-cat-head">
+          <span class="m-cat-num">№ 02</span>
+          <h2 class="display">Soğuk <em>Mezeler</em></h2>
+          <p>Sabah hazırlanır, akşam sofraya iner. Ev yapımı, ustanın eli.</p>
+        </header>
+
+        <div class="m-list">
+          <article class="m-item" data-tags="vegan">
+            <div class="mi-head">
+              <span class="mi-num">01</span>
+              <h4>Haydari</h4>
+              <span class="mi-dots"></span>
+              <span class="mi-price">—</span>
+            </div>
+            <p>Süzme yoğurt, ceviz içi, taze nane.</p>
+          </article>
+          <article class="m-item" data-tags="vegan">
+            <div class="mi-head">
+              <span class="mi-num">02</span>
+              <h4>Acılı Ezme</h4>
+              <span class="mi-dots"></span>
+              <span class="mi-price">—</span>
+            </div>
+            <p>Közlenmiş biber, domates, sumak, nar ekşisi.</p>
+          </article>
+          <article class="m-item" data-tags="vegan">
+            <div class="mi-head">
+              <span class="mi-num">03</span>
+              <h4>Atom</h4>
+              <span class="mi-dots"></span>
+              <span class="mi-price">—</span>
+            </div>
+            <p>Yoğurt, sarımsak, sıcak tereyağı, pul biber.</p>
+          </article>
+          <article class="m-item" data-tags="vegan">
+            <div class="mi-head">
+              <span class="mi-num">04</span>
+              <h4>Cacık</h4>
+              <span class="mi-dots"></span>
+              <span class="mi-price">—</span>
+            </div>
+            <p>Süzme yoğurt, salatalık, dereotu, naneli zeytinyağı.</p>
+          </article>
+          <article class="m-item" data-tags="vegan mevsim">
+            <div class="mi-head">
+              <span class="mi-num">05</span>
+              <h4>Deniz Börülcesi</h4>
+              <span class="mi-dots"></span>
+              <span class="mi-price">mevsim</span>
+            </div>
+            <p>Haşlanmış, soğuk; sarımsaklı zeytinyağı, limon.</p>
+          </article>
+          <article class="m-item" data-tags="vegan mevsim">
+            <div class="mi-head">
+              <span class="mi-num">06</span>
+              <h4>Semizotu</h4>
+              <span class="mi-dots"></span>
+              <span class="mi-price">mevsim</span>
+            </div>
+            <p>Yoğurt, sarımsak, zeytinyağı.</p>
+          </article>
+          <article class="m-item" data-tags="">
+            <div class="mi-head">
+              <span class="mi-num">07</span>
+              <h4>Topik</h4>
+              <span class="mi-dots"></span>
+              <span class="mi-price">—</span>
+            </div>
+            <p>Patates, nohut, tahin, soğan, kuş üzümü, çam fıstığı.</p>
+          </article>
+          <article class="m-item" data-tags="">
+            <div class="mi-head">
+              <span class="mi-num">08</span>
+              <h4>Lakerda</h4>
+              <span class="mi-dots"></span>
+              <span class="mi-price">—</span>
+            </div>
+            <p>Tuzlanmış palamut dilimleri, soğan, dereotu.</p>
+          </article>
+          <article class="m-item" data-tags="vegan">
+            <div class="mi-head">
+              <span class="mi-num">09</span>
+              <h4>Patlıcan Salatası</h4>
+              <span class="mi-dots"></span>
+              <span class="mi-price">—</span>
+            </div>
+            <p>Köz patlıcan, sarımsaklı yoğurt, narenciye.</p>
+          </article>
+          <article class="m-item" data-tags="vegan">
+            <div class="mi-head">
+              <span class="mi-num">10</span>
+              <h4>Çoban Salata</h4>
+              <span class="mi-dots"></span>
+              <span class="mi-price">—</span>
+            </div>
+            <p>Domates, salatalık, biber, soğan, maydanoz.</p>
+          </article>
+          <article class="m-item" data-tags="">
+            <div class="mi-head">
+              <span class="mi-num">11</span>
+              <h4>Çiroz Salatası</h4>
+              <span class="mi-dots"></span>
+              <span class="mi-price">mevsim</span>
+            </div>
+            <p>Kurutulmuş uskumru, soğan, sirke, zeytinyağı.</p>
+          </article>
+          <article class="m-item" data-tags="">
+            <div class="mi-head">
+              <span class="mi-num">12</span>
+              <h4>Fava</h4>
+              <span class="mi-dots"></span>
+              <span class="mi-price">—</span>
+            </div>
+            <p>Sarı bezelye, dereotu, kırmızı soğan, zeytinyağı.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- SICAK BAŞLANGIÇLAR -->
+      <section class="m-cat" id="sicak">
+        <header class="m-cat-head">
+          <span class="m-cat-num">№ 03</span>
+          <h2 class="display">Sıcak <em>Başlangıçlar</em></h2>
+          <p>Tencere ve tavadan; ortadan paylaşılmaya uygun.</p>
+        </header>
+
+        <div class="m-list">
+          <article class="m-item" data-tags="sef">
+            <div class="mi-head"><span class="mi-num">01</span><h4>Karides Güveç</h4><span class="mi-dots"></span><span class="mi-price">—</span></div>
+            <p>Domates, kaşar, fesleğen; tereyağında.</p>
+          </article>
+          <article class="m-item">
+            <div class="mi-head"><span class="mi-num">02</span><h4>Midye Tava</h4><span class="mi-dots"></span><span class="mi-price">—</span></div>
+            <p>Çıtır panko, tarator sos, limon.</p>
+          </article>
+          <article class="m-item">
+            <div class="mi-head"><span class="mi-num">03</span><h4>Kalamar Tava</h4><span class="mi-dots"></span><span class="mi-price">—</span></div>
+            <p>Mısır unu kabuk, tarator, limon.</p>
+          </article>
+          <article class="m-item">
+            <div class="mi-head"><span class="mi-num">04</span><h4>Midye Dolma</h4><span class="mi-dots"></span><span class="mi-price">—</span></div>
+            <p>İç pilav, fıstık, kuş üzümü, baharat.</p>
+          </article>
+          <article class="m-item" data-tags="mevsim">
+            <div class="mi-head"><span class="mi-num">05</span><h4>Ahtapot Izgara</h4><span class="mi-dots"></span><span class="mi-price">mevsim</span></div>
+            <p>Patates, kapari, zeytinyağı, limon.</p>
+          </article>
+          <article class="m-item">
+            <div class="mi-head"><span class="mi-num">06</span><h4>Karides Tava</h4><span class="mi-dots"></span><span class="mi-price">—</span></div>
+            <p>Sarımsak, tereyağı, taze maydanoz.</p>
+          </article>
+          <article class="m-item">
+            <div class="mi-head"><span class="mi-num">07</span><h4>Sigara Böreği</h4><span class="mi-dots"></span><span class="mi-price">—</span></div>
+            <p>Beyaz peynir, maydanoz; çıtır.</p>
+          </article>
+          <article class="m-item">
+            <div class="mi-head"><span class="mi-num">08</span><h4>Tereyağında Mantar</h4><span class="mi-dots"></span><span class="mi-price">—</span></div>
+            <p>Sarımsak, taze kekik.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- IZGARALAR -->
+      <section class="m-cat" id="izgara">
+        <header class="m-cat-head">
+          <span class="m-cat-num">№ 04</span>
+          <h2 class="display">Izgara <em>Balıklar</em></h2>
+          <p>Mevsime göre değişir, ustanın elinde közlenir.</p>
+        </header>
+
+        <div class="m-list">
+          <article class="m-item" data-tags="sef mevsim">
+            <div class="mi-head"><span class="mi-num">01</span><h4>Çupra</h4><span class="mi-dots"></span><span class="mi-price">mevsim</span></div>
+            <p>Kömürde, tuzlanmış; yanında salata + meze.</p>
+          </article>
+          <article class="m-item" data-tags="mevsim">
+            <div class="mi-head"><span class="mi-num">02</span><h4>Levrek</h4><span class="mi-dots"></span><span class="mi-price">mevsim</span></div>
+            <p>Bütün; közde kuru, içi nemli.</p>
+          </article>
+          <article class="m-item" data-tags="mevsim">
+            <div class="mi-head"><span class="mi-num">03</span><h4>Karagöz</h4><span class="mi-dots"></span><span class="mi-price">mevsim</span></div>
+            <p>Yağlı eti, kömürün ısrarı.</p>
+          </article>
+          <article class="m-item" data-tags="mevsim">
+            <div class="mi-head"><span class="mi-num">04</span><h4>Mercan</h4><span class="mi-dots"></span><span class="mi-price">mevsim</span></div>
+            <p>Beyaz eti, hafif ve tatlı.</p>
+          </article>
+          <article class="m-item" data-tags="mevsim">
+            <div class="mi-head"><span class="mi-num">05</span><h4>Lüfer</h4><span class="mi-dots"></span><span class="mi-price">kasım—şubat</span></div>
+            <p>Boğazın klasiği; köz, tek limon.</p>
+          </article>
+          <article class="m-item" data-tags="mevsim">
+            <div class="mi-head"><span class="mi-num">06</span><h4>Palamut</h4><span class="mi-dots"></span><span class="mi-price">eylül—aralık</span></div>
+            <p>Diliminden ızgara; zeytinyağı, limon.</p>
+          </article>
+          <article class="m-item">
+            <div class="mi-head"><span class="mi-num">07</span><h4>Somon Izgara</h4><span class="mi-dots"></span><span class="mi-price">—</span></div>
+            <p>Salata yatağında; limon, dereotu.</p>
+          </article>
+          <article class="m-item">
+            <div class="mi-head"><span class="mi-num">08</span><h4>Çinekop / Sarıkanat</h4><span class="mi-dots"></span><span class="mi-price">mevsim</span></div>
+            <p>Lüferin gençleri; bütün ızgara.</p>
+          </article>
+          <article class="m-item">
+            <div class="mi-head"><span class="mi-num">09</span><h4>Trança · Ton Balığı</h4><span class="mi-dots"></span><span class="mi-price">mevsim</span></div>
+            <p>Steak kalınlığında; orta pişmiş.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- TAVA -->
+      <section class="m-cat" id="tava">
+        <header class="m-cat-head">
+          <span class="m-cat-num">№ 05</span>
+          <h2 class="display">Tava &amp; <em>Kızartma</em></h2>
+          <p>Mısır unu kabuk, sıcak yağ; klasik.</p>
+        </header>
+
+        <div class="m-list">
+          <article class="m-item" data-tags="mevsim">
+            <div class="mi-head"><span class="mi-num">01</span><h4>Hamsi Tava</h4><span class="mi-dots"></span><span class="mi-price">kasım—şubat</span></div>
+            <p>Karadeniz hamsisi; tepside, sıcak.</p>
+          </article>
+          <article class="m-item">
+            <div class="mi-head"><span class="mi-num">02</span><h4>İstavrit Tava</h4><span class="mi-dots"></span><span class="mi-price">—</span></div>
+            <p>Marin tatlı, çıtır kabuk.</p>
+          </article>
+          <article class="m-item">
+            <div class="mi-head"><span class="mi-num">03</span><h4>Mezgit Tava</h4><span class="mi-dots"></span><span class="mi-price">—</span></div>
+            <p>Beyaz eti, tarator sos.</p>
+          </article>
+          <article class="m-item" data-tags="mevsim">
+            <div class="mi-head"><span class="mi-num">04</span><h4>Barbun Tava</h4><span class="mi-dots"></span><span class="mi-price">mevsim</span></div>
+            <p>Pembe etli, ince kemikli; pul biberli.</p>
+          </article>
+          <article class="m-item">
+            <div class="mi-head"><span class="mi-num">05</span><h4>Kefal Tava</h4><span class="mi-dots"></span><span class="mi-price">—</span></div>
+            <p>Bütün; çıtır, içi nemli.</p>
+          </article>
+          <article class="m-item">
+            <div class="mi-head"><span class="mi-num">06</span><h4>Karides Kızartma</h4><span class="mi-dots"></span><span class="mi-price">—</span></div>
+            <p>Tempura çıtırlığında; sweet chili.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- SALATALAR -->
+      <section class="m-cat" id="salata">
+        <header class="m-cat-head">
+          <span class="m-cat-num">№ 06</span>
+          <h2 class="display">Salatalar</h2>
+          <p>Balığın hafif yoldaşları.</p>
+        </header>
+
+        <div class="m-list">
+          <article class="m-item" data-tags="vegan">
+            <div class="mi-head"><span class="mi-num">01</span><h4>Roka Salatası</h4><span class="mi-dots"></span><span class="mi-price">—</span></div>
+            <p>Limon, parmesan, taze çekilmiş karabiber.</p>
+          </article>
+          <article class="m-item" data-tags="vegan">
+            <div class="mi-head"><span class="mi-num">02</span><h4>Mevsim Salata</h4><span class="mi-dots"></span><span class="mi-price">—</span></div>
+            <p>Marul, kıvırcık, mısır, mor lahana, mevsim yeşillikleri.</p>
+          </article>
+          <article class="m-item" data-tags="vegan">
+            <div class="mi-head"><span class="mi-num">03</span><h4>Çoban Salata</h4><span class="mi-dots"></span><span class="mi-price">—</span></div>
+            <p>Domates, salatalık, biber, soğan, maydanoz.</p>
+          </article>
+          <article class="m-item" data-tags="vegan">
+            <div class="mi-head"><span class="mi-num">04</span><h4>Akdeniz Salata</h4><span class="mi-dots"></span><span class="mi-price">—</span></div>
+            <p>Beyaz peynir, zeytin, kapari, roka.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- İÇECEKLER -->
+      <section class="m-cat" id="icecek">
+        <header class="m-cat-head">
+          <span class="m-cat-num">№ 07</span>
+          <h2 class="display"><em>İçecekler</em></h2>
+          <p>Balığın yanına yakışanlar — alkollü ve alkolsüz.</p>
+        </header>
+
+        <div class="m-cols">
+          <div class="m-col">
+            <h3 class="m-col-title">Sek &amp; Şarap</h3>
+            <ul class="m-mini">
+              <li><span>Yeni Rakı (35 cl)</span><i>—</i></li>
+              <li><span>Yeni Rakı (70 cl)</span><i>—</i></li>
+              <li><span>Tekirdağ Rakısı</span><i>—</i></li>
+              <li><span>Kulüp Rakı</span><i>—</i></li>
+              <li><span>Beylerbeyi</span><i>—</i></li>
+              <li><span>Beyaz Şarap · Kavaklıdere</span><i>—</i></li>
+              <li><span>Kırmızı Şarap · Doluca</span><i>—</i></li>
+              <li><span>Rosé · Sevilen</span><i>—</i></li>
+            </ul>
+          </div>
+          <div class="m-col">
+            <h3 class="m-col-title">Bira</h3>
+            <ul class="m-mini">
+              <li><span>Efes Pilsen (Şişe)</span><i>—</i></li>
+              <li><span>Efes (Bardak)</span><i>—</i></li>
+              <li><span>Bomonti Filtresiz</span><i>—</i></li>
+              <li><span>Tuborg Gold</span><i>—</i></li>
+            </ul>
+          </div>
+          <div class="m-col">
+            <h3 class="m-col-title">Alkolsüz</h3>
+            <ul class="m-mini">
+              <li><span>Ayran</span><i>—</i></li>
+              <li><span>Şalgam Suyu</span><i>—</i></li>
+              <li><span>Soda · Sade</span><i>—</i></li>
+              <li><span>Soda · Meyveli</span><i>—</i></li>
+              <li><span>Limonata · Ev Yapımı</span><i>—</i></li>
+              <li><span>Kola · Fanta</span><i>—</i></li>
+              <li><span>Su</span><i>—</i></li>
+            </ul>
+          </div>
+          <div class="m-col">
+            <h3 class="m-col-title">Sıcak</h3>
+            <ul class="m-mini">
+              <li><span>Çay</span><i>—</i></li>
+              <li><span>Türk Kahvesi</span><i>—</i></li>
+              <li><span>Filtre Kahve</span><i>—</i></li>
+              <li><span>Espresso</span><i>—</i></li>
+              <li><span>Bitki Çayı</span><i>—</i></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- TATLILAR -->
+      <section class="m-cat" id="tatli">
+        <header class="m-cat-head">
+          <span class="m-cat-num">№ 08</span>
+          <h2 class="display">Tatlı &amp; <em>Kapanış</em></h2>
+          <p>Akşamı tatlıya bağlamak için.</p>
+        </header>
+
+        <div class="m-list">
+          <article class="m-item">
+            <div class="mi-head"><span class="mi-num">01</span><h4>Künefe</h4><span class="mi-dots"></span><span class="mi-price">—</span></div>
+            <p>Sıcak, peynirli; dondurma yanında.</p>
+          </article>
+          <article class="m-item">
+            <div class="mi-head"><span class="mi-num">02</span><h4>Sütlaç</h4><span class="mi-dots"></span><span class="mi-price">—</span></div>
+            <p>Fırın; tarçınlı, tek pişirme.</p>
+          </article>
+          <article class="m-item">
+            <div class="mi-head"><span class="mi-num">03</span><h4>Mevsim Meyve Tabağı</h4><span class="mi-dots"></span><span class="mi-price">mevsim</span></div>
+            <p>Tazeden, küçük tabakta.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- NOTLAR -->
+      <section class="m-notes">
+        <div class="m-notes-card">
+          <h3>Notlar</h3>
+          <ul>
+            <li>Fiyatlar <em>bilgi amaçlıdır</em>; günlük tedarike ve mevsime göre değişebilir. Güncel için telefonla doğrulayın.</li>
+            <li>Mevsim balıkları her sabah tezgâhımıza taze ulaşır. Stokta olmayan balıklar için ustamızdan öneri alabilirsiniz.</li>
+            <li>Alerjeniz varsa lütfen siparişten önce bildirin; meze ve sosları size göre düzenleriz.</li>
+            <li>Açık hava bölümünde 40, kapalı salonda 30 kişilik kapasitemiz vardır. Geniş gruplar için rezervasyon önerilir.</li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ============= FOOTER MINI ============= -->
+  <footer class="m-foot">
+    <div class="container m-foot-inner">
+      <div>
+        <strong>Zafer Balıkçılık Artur</strong>
+        <p>Şok yanı, Karaağaç Artur girişi · Balıkesir</p>
+      </div>
+      <div class="m-foot-links">
+        <a href="index.html">Ana sayfa</a>
+        <a href="qr.html">Karekod paneli</a>
+        <a href="tel:+905327985244">0532 798 52 44</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============= STICKY ACTION BAR ============= -->
+  <div class="m-sticky">
+    <a href="tel:+905327985244" class="m-sticky-btn m-sticky-call">Ara</a>
+    <a href="https://wa.me/905327985244?text=Merhaba,%20rezervasyon%20yapmak%20istiyorum." target="_blank" rel="noopener" class="m-sticky-btn m-sticky-wa">WhatsApp</a>
+    <button class="m-sticky-btn m-sticky-top" id="mTopBtn">↑ Üste</button>
+  </div>
+
+  <script src="menu.js"></script>
+</body>
+</html>

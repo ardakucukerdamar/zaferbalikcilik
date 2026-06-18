@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /qr.html
+Disallow: /sw.js
+
+Sitemap: https://zaferbalikcilikartur.com/sitemap.xml

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a141d" />
+  <title>Karekod Paneli · Zafer Balıkçılık Artur</title>
+  <meta name="description" content="Zafer Balıkçılık Artur için yazdırılabilir karekod paneli: menü, WhatsApp, Google yorum, yol tarifi." />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23c9a36b'/%3E%3Ctext x='50%25' y='62%25' text-anchor='middle' font-size='38' font-family='Georgia' fill='%230a141d' font-weight='900' font-style='italic'%3EZ%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,600;1,9..144,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    body.qr-page { background: var(--paper-2); }
+
+    .qr-hero { padding: 80px 0 40px; text-align: center; }
+    .qr-hero .section-num { display: block; margin-bottom: 14px; }
+    .qr-hero h1 {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: clamp(2.6rem, 6vw, 4.6rem);
+      line-height: 1.02;
+      letter-spacing: -.025em;
+      margin: 0 auto 18px;
+      max-width: 880px;
+    }
+    .qr-hero h1 em { color: var(--bronze); font-style: italic; }
+    .qr-hero p { color: var(--ink-soft); font-size: 1rem; max-width: 620px; margin: 0 auto 24px; }
+
+    .qr-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--ink-soft);
+      font-size: .78rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+    }
+    .qr-back:hover { color: var(--ink); background: var(--paper-3); }
+
+    .qr-toolbar {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .qr-board {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      padding: 60px 0 90px;
+    }
+    .qr-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 40px 36px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      page-break-inside: avoid;
+      break-inside: avoid;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+      transition: transform .35s var(--ease), box-shadow .35s ease;
+      position: relative;
+    }
+    .qr-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .qr-card .qrc-num {
+      position: absolute;
+      top: 22px; left: 26px;
+      font-family: var(--display);
+      font-style: italic;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--gold-deep);
+      letter-spacing: .05em;
+    }
+    .qr-card .qrc-brand {
+      position: absolute;
+      top: 22px; right: 26px;
+      font-family: var(--display);
+      font-size: .78rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+    .qr-card .qrc-brand em { color: var(--bronze); font-style: italic; letter-spacing: 0; text-transform: none; }
+
+    .qr-canvas-wrap {
+      width: 240px; height: 240px;
+      padding: 14px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      display: grid;
+      place-items: center;
+    }
+    .qr-canvas-wrap canvas, .qr-canvas-wrap svg, .qr-canvas-wrap img { width: 100% !important; height: 100% !important; max-width: 220px; max-height: 220px; }
+
+    .qrc-title {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 1.4rem;
+      letter-spacing: -.01em;
+      margin: 0;
+    }
+    .qrc-desc {
+      color: var(--ink-soft);
+      font-size: .92rem;
+      max-width: 320px;
+      margin: 0;
+    }
+    .qrc-cta {
+      font-size: .78rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      font-weight: 600;
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      width: 100%;
+    }
+
+    .qr-foot {
+      text-align: center;
+      padding: 40px 0 80px;
+      color: var(--ink-soft);
+      font-size: .85rem;
+      letter-spacing: .04em;
+      border-top: 1px solid var(--line);
+    }
+    .qr-foot strong { color: var(--ink-deep); font-family: var(--display); font-style: italic; }
+
+    @media (max-width: 760px) {
+      .qr-board { grid-template-columns: 1fr; gap: 18px; padding: 30px 0 60px; }
+      .qr-card { padding: 30px 22px; }
+      .qr-canvas-wrap { width: 200px; height: 200px; }
+    }
+
+    @media print {
+      body.qr-page { background: #fff; }
+      .grain, .qr-toolbar, .qr-back, .qr-foot { display: none !important; }
+      .qr-hero { padding: 20px 0 12px; }
+      .qr-hero h1 { font-size: 28px; margin-bottom: 4px; }
+      .qr-hero p { font-size: 11px; }
+      .qr-board { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 12px 0; }
+      .qr-card {
+        box-shadow: none;
+        border: 1.5px solid #d8c79c;
+        padding: 20px 18px;
+        page-break-inside: avoid;
+      }
+      .qr-canvas-wrap { width: 220px; height: 220px; }
+      .qrc-title { font-size: 16px; }
+      .qrc-desc { font-size: 11px; max-width: none; }
+      .qrc-cta { font-size: 9px; padding-top: 8px; }
+      @page { size: A4; margin: 12mm; }
+    }
+  </style>
+</head>
+<body class="qr-page">
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="qr-hero">
+    <div class="container">
+      <a href="index.html" class="qr-back">← Ana sayfa</a>
+      <p class="section-num">№ 09 · Karekod Paneli</p>
+      <h1>Masaya inecek <em>karekodlar</em>.</h1>
+      <p>Misafirleriniz menüye, rezervasyona, yol tarifine ve yorum bırakmaya tek dokunuşla erişsin. Aşağıdaki kodları yazdır, masaya yerleştir.</p>
+
+      <div class="qr-toolbar">
+        <button class="btn btn-gold magnetic" id="qrPrint">Yazdır</button>
+        <button class="btn btn-line magnetic" id="qrDownloadAll">PNG indir</button>
+        <a href="index.html" class="btn btn-line magnetic">← Siteye dön</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="qr-board" id="qrBoard">
+
+      <article class="qr-card" data-payload="menu">
+        <span class="qrc-num">№ 01</span>
+        <span class="qrc-brand">Zafer <em>Balıkçılık</em></span>
+        <div class="qr-canvas-wrap" data-text="https://zaferbalikcilikartur.com/menu.html" data-name="menu"></div>
+        <h2 class="qrc-title">Menü</h2>
+        <p class="qrc-desc">Karekodu okutun; tam menü, mevsim balıkları ve mezeler telefonda açılsın.</p>
+        <span class="qrc-cta">tara · menüyü aç</span>
+      </article>
+
+      <article class="qr-card" data-payload="reserve">
+        <span class="qrc-num">№ 02</span>
+        <span class="qrc-brand">Zafer <em>Balıkçılık</em></span>
+        <div class="qr-canvas-wrap" data-text="https://wa.me/905327985244?text=Merhaba,%20rezervasyon%20yapmak%20istiyorum." data-name="rezervasyon"></div>
+        <h2 class="qrc-title">WhatsApp Rezervasyon</h2>
+        <p class="qrc-desc">Doğrudan WhatsApp'tan rezervasyon mesajı oluşur — saat, tarih, kişi bilgisini siz tamamlarsınız.</p>
+        <span class="qrc-cta">tara · whatsapp aç</span>
+      </article>
+
+      <article class="qr-card" data-payload="review">
+        <span class="qrc-num">№ 03</span>
+        <span class="qrc-brand">Zafer <em>Balıkçılık</em></span>
+        <div class="qr-canvas-wrap" data-text="https://search.google.com/local/writereview?placeid=ChIJ_____________________" data-name="yorum"></div>
+        <h2 class="qrc-title">Yorum Bırak</h2>
+        <p class="qrc-desc">Google Maps üzerinde yorum yazma sayfasına gider. Önce kendi Google "Place ID"nizi ekleyin (qr.js içinde).</p>
+        <span class="qrc-cta">tara · yorum yaz</span>
+      </article>
+
+      <article class="qr-card" data-payload="map">
+        <span class="qrc-num">№ 04</span>
+        <span class="qrc-brand">Zafer <em>Balıkçılık</em></span>
+        <div class="qr-canvas-wrap" data-text="https://www.google.com/maps/search/?api=1&query=Zafer+Balıkçılık+Artur+Karaağaç+Balıkesir" data-name="konum"></div>
+        <h2 class="qrc-title">Yol Tarifi</h2>
+        <p class="qrc-desc">Google Maps üzerinde Karaağaç, Şok yanı konumumuza navigasyon başlar.</p>
+        <span class="qrc-cta">tara · konuma git</span>
+      </article>
+
+      <article class="qr-card" data-payload="call">
+        <span class="qrc-num">№ 05</span>
+        <span class="qrc-brand">Zafer <em>Balıkçılık</em></span>
+        <div class="qr-canvas-wrap" data-text="tel:+905327985244" data-name="telefon"></div>
+        <h2 class="qrc-title">Telefon Et</h2>
+        <p class="qrc-desc">Doğrudan arama başlar — 0532 798 52 44</p>
+        <span class="qrc-cta">tara · ara</span>
+      </article>
+
+      <article class="qr-card" data-payload="site">
+        <span class="qrc-num">№ 06</span>
+        <span class="qrc-brand">Zafer <em>Balıkçılık</em></span>
+        <div class="qr-canvas-wrap" data-text="https://zaferbalikcilikartur.com/" data-name="site"></div>
+        <h2 class="qrc-title">Web Sitesi</h2>
+        <p class="qrc-desc">Hikâye, galeri, iletişim ve rezervasyon — tek noktadan.</p>
+        <span class="qrc-cta">tara · siteyi aç</span>
+      </article>
+
+    </section>
+
+    <p class="qr-foot">
+      Karekodlar bu sayfada <strong>yerel olarak</strong> üretilir, internete bağlanmaz.
+      Yazdırmak için sayfayı kaydedin veya tarayıcıdan "Yazdır" (<em>Ctrl/⌘ + P</em>) tıklayın.
+    </p>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <script src="qr.js"></script>
+</body>
+</html>

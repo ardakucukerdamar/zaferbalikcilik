@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a141d" />
+  <title>Galeri · Zafer Balıkçılık Artur</title>
+  <meta name="description" content="Zafer Balıkçılık Artur galerisi — mekândan, sofradan, tezgâhtan ve Karaağaç sahilinden kareler." />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23c9a36b'/%3E%3Ctext x='50%25' y='62%25' text-anchor='middle' font-size='38' font-family='Georgia' fill='%230a141d' font-weight='900' font-style='italic'%3EZ%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,600;1,9..144,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { corePlugins: { preflight: false } }</script>
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    body.galeri-page { background: var(--paper); }
+
+    .gp-hero {
+      padding: 90px 0 50px;
+      text-align: left;
+      background: var(--paper-2);
+      border-bottom: 1px solid var(--line);
+    }
+    .gp-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--ink-soft);
+      font-size: .78rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+    }
+    .gp-back:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+    .gp-hero h1 {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: clamp(2.6rem, 7vw, 5.4rem);
+      line-height: 1.02;
+      letter-spacing: -.025em;
+      margin: 0 0 16px;
+    }
+    .gp-hero h1 em { color: var(--bronze); font-style: italic; }
+    .gp-hero p { color: var(--ink-soft); max-width: 580px; font-size: 1rem; }
+
+    .gp-tabs {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+    .gp-tab {
+      padding: 9px 18px;
+      font-size: .85rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      transition: background .25s ease, color .25s ease, border-color .25s ease;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .gp-tab i {
+      font-style: normal;
+      font-size: .72rem;
+      color: var(--gold-deep);
+      font-weight: 600;
+    }
+    .gp-tab:hover { color: var(--ink); }
+    .gp-tab.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+    .gp-tab.active i { color: var(--gold); }
+
+    .gp-board { padding: 60px 0 100px; }
+    .gp-grid {
+      column-count: 4;
+      column-gap: 16px;
+    }
+    .gp-grid figure {
+      break-inside: avoid;
+      margin: 0 0 16px;
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: zoom-in;
+      transition: transform .35s var(--ease), opacity .35s ease;
+    }
+    .gp-grid figure.hidden { display: none; }
+    .gp-grid figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform .6s var(--ease-out);
+    }
+    .gp-grid figure:hover img { transform: scale(1.04); }
+    .gp-grid figure::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 45%, rgba(10,20,29,.78));
+      opacity: 0;
+      transition: opacity .35s ease;
+    }
+    .gp-grid figure:hover::after { opacity: 1; }
+    .gp-grid figcaption {
+      position: absolute;
+      left: 16px; bottom: 14px;
+      z-index: 2;
+      color: var(--paper);
+      font-family: var(--display);
+      font-style: italic;
+      font-size: .98rem;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity .35s ease, transform .35s var(--ease);
+    }
+    .gp-grid figure:hover figcaption { opacity: 1; transform: none; }
+
+    .gp-empty {
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--ink-soft);
+      font-style: italic;
+      font-family: var(--display);
+      font-size: 1.2rem;
+      display: none;
+    }
+    .gp-empty.show { display: block; }
+
+    .gp-foot {
+      padding: 50px 0 80px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      color: var(--ink-soft);
+      font-size: .88rem;
+    }
+    .gp-foot strong { color: var(--ink-deep); font-family: var(--display); }
+    .gp-foot a {
+      color: var(--ink);
+      border-bottom: 1px solid var(--gold-deep);
+      padding-bottom: 2px;
+    }
+    .gp-foot a:hover { color: var(--gold-deep); }
+
+    @media (max-width: 980px) { .gp-grid { column-count: 3; } }
+    @media (max-width: 720px) { .gp-grid { column-count: 2; column-gap: 10px; } .gp-grid figure { margin-bottom: 10px; } }
+    @media (max-width: 480px) { .gp-grid { column-count: 1; } }
+  </style>
+</head>
+<body class="galeri-page">
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="gp-hero">
+    <div class="container">
+      <a href="index.html" class="gp-back">← Ana sayfa</a>
+      <p class="section-num">№ 07 · Galeri</p>
+      <h1>Mekândan, <em>sofradan,</em><br/>denizden kareler.</h1>
+      <p>Karaağaç sahilinden, ustanın elinden, sofranın ortasından; Zafer Balıkçılık Artur'un kayıt altına alınmış halleri.</p>
+
+      <div class="gp-tabs" id="gpTabs" role="tablist">
+        <button class="gp-tab active" data-tab="all"><i>00</i>Hepsi</button>
+        <button class="gp-tab" data-tab="sofra"><i>01</i>Sofra</button>
+        <button class="gp-tab" data-tab="balik"><i>02</i>Balık</button>
+        <button class="gp-tab" data-tab="meze"><i>03</i>Mezeler</button>
+        <button class="gp-tab" data-tab="mekan"><i>04</i>Mekân</button>
+        <button class="gp-tab" data-tab="sahil"><i>05</i>Sahil</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container gp-board">
+    <div class="gp-grid" id="gpGrid">
+      <figure data-cat="balik" data-img="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1600&q=85">
+        <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&q=80" alt="Kömürde ızgara"/>
+        <figcaption>Kömürde ızgara</figcaption>
+      </figure>
+      <figure data-cat="meze" data-img="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1600&q=85">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80" alt="Mezeler"/>
+        <figcaption>Soğuk mezeler</figcaption>
+      </figure>
+      <figure data-cat="sofra" data-img="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=85">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Akşam sofrası"/>
+        <figcaption>Akşam sofrası</figcaption>
+      </figure>
+      <figure data-cat="balik" data-img="https://images.unsplash.com/photo-1535400255456-462a7d8704c2?auto=format&fit=crop&w=1600&q=85">
+        <img src="https://images.unsplash.com/photo-1535400255456-462a7d8704c2?auto=format&fit=crop&w=800&q=80" alt="Taze balık"/>
+        <figcaption>Tezgâhın yüzü</figcaption>
+      </figure>
+      <figure data-cat="mekan" data-img="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1600&q=85">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Hazırlık"/>
+        <figcaption>Hazırlık</figcaption>
+      </figure>
+      <figure data-cat="mekan" data-img="https://images.unsplash.com/photo-1565299543923-37dd37887442?auto=format&fit=crop&w=1600&q=85">
+        <img src="https://images.unsplash.com/photo-1565299543923-37dd37887442?auto=format&fit=crop&w=800&q=80" alt="Mekan"/>
+        <figcaption>İçeri</figcaption>
+      </figure>
+      <figure data-cat="meze" data-img="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1600&q=85">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=80" alt="Detay"/>
+        <figcaption>Limon · zeytinyağı</figcaption>
+      </figure>
+      <figure data-cat="sahil" data-img="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=85">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80" alt="Karaağaç sahili"/>
+        <figcaption>Karaağaç sahili</figcaption>
+      </figure>
+      <figure data-cat="balik" data-img="https://images.unsplash.com/photo-1535140728325-a4d3707eee94?auto=format&fit=crop&w=1600&q=85">
+        <img src="https://images.unsplash.com/photo-1535140728325-a4d3707eee94?auto=format&fit=crop&w=800&q=80" alt="Balık porsiyon"/>
+        <figcaption>Porsiyon</figcaption>
+      </figure>
+      <figure data-cat="sofra" data-img="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=85">
+        <img src="https://images.unsplash.com/photo-1485921325833-c519f76c4927?auto=format&fit=crop&w=800&q=80" alt="Sofra"/>
+        <figcaption>Uzun akşamlar</figcaption>
+      </figure>
+      <figure data-cat="meze" data-img="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1600&q=85">
+        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80" alt="Meze tabağı"/>
+        <figcaption>Meze tabağı</figcaption>
+      </figure>
+      <figure data-cat="sahil" data-img="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=85">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Sahil"/>
+        <figcaption>Esinti</figcaption>
+      </figure>
+      <figure data-cat="sofra" data-img="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=85">
+        <img src="https://images.unsplash.com/photo-1473093226795-af9932fe5856?auto=format&fit=crop&w=800&q=80" alt="Mum ışığı sofra"/>
+        <figcaption>Mum ışığı</figcaption>
+      </figure>
+      <figure data-cat="balik" data-img="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=1600&q=85">
+        <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=800&q=80" alt="Tava balığı"/>
+        <figcaption>Tava</figcaption>
+      </figure>
+      <figure data-cat="mekan" data-img="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=85">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Mekan"/>
+        <figcaption>Sıcak ışık</figcaption>
+      </figure>
+      <figure data-cat="sahil" data-img="https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef?auto=format&fit=crop&w=1600&q=85">
+        <img src="https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef?auto=format&fit=crop&w=800&q=80" alt="Deniz"/>
+        <figcaption>Akşam denizi</figcaption>
+      </figure>
+    </div>
+
+    <p class="gp-empty" id="gpEmpty">bu kategoride henüz kare yok.</p>
+
+    <div class="gp-foot">
+      <span>kayıt: <strong>16 kare</strong> · güncellenir</span>
+      <a href="qr.html">karekod paneline git →</a>
+    </div>
+  </main>
+
+  <!-- Lightbox (shared style) -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb-close" aria-label="Kapat">
+      <svg width="22" height="22" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+    <button class="lb-prev" aria-label="Önceki">‹</button>
+    <figure class="lb-figure">
+      <img id="lbImg" alt=""/>
+      <figcaption>
+        <span id="lbCap"></span>
+        <span class="lb-counter"><i id="lbIdx">1</i> / <i id="lbTotal">16</i></span>
+      </figcaption>
+    </figure>
+    <button class="lb-next" aria-label="Sonraki">›</button>
+  </div>
+
+  <script>
+  (() => {
+    const $ = (s, c = document) => c.querySelector(s);
+    const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
+
+    // Tabs filter
+    const tabs = $$('.gp-tab');
+    const figs = $$('.gp-grid figure');
+    const empty = $('#gpEmpty');
+    tabs.forEach(t => t.addEventListener('click', () => {
+      tabs.forEach(x => x.classList.toggle('active', x === t));
+      const tab = t.dataset.tab;
+      let shown = 0;
+      figs.forEach(f => {
+        const ok = tab === 'all' || f.dataset.cat === tab;
+        f.classList.toggle('hidden', !ok);
+        if (ok) shown++;
+      });
+      empty.classList.toggle('show', shown === 0);
+    }));
+
+    // Lightbox
+    const lb = $('#lightbox');
+    const lbImg = $('#lbImg'), lbCap = $('#lbCap'), lbIdx = $('#lbIdx'), lbTot = $('#lbTotal');
+    let idx = 0;
+    const set = i => {
+      const visible = figs.filter(f => !f.classList.contains('hidden'));
+      if (!visible.length) return;
+      idx = (i + visible.length) % visible.length;
+      const t = visible[idx];
+      lbImg.src = t.dataset.img;
+      lbImg.alt = t.querySelector('figcaption')?.textContent || '';
+      lbCap.textContent = t.querySelector('figcaption')?.textContent || '';
+      lbIdx.textContent = String(idx + 1);
+      lbTot.textContent = String(visible.length);
+    };
+    const open = i => {
+      set(i);
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('no-scroll');
+    };
+    const close = () => {
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('no-scroll');
+    };
+    figs.forEach((f, i) => f.addEventListener('click', () => {
+      const visible = figs.filter(x => !x.classList.contains('hidden'));
+      const j = visible.indexOf(f);
+      open(j < 0 ? 0 : j);
+    }));
+    $('.lb-close', lb).addEventListener('click', close);
+    $('.lb-prev', lb).addEventListener('click', () => set(idx - 1));
+    $('.lb-next', lb).addEventListener('click', () => set(idx + 1));
+    lb.addEventListener('click', e => { if (e.target === lb) close(); });
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') set(idx - 1);
+      if (e.key === 'ArrowRight') set(idx + 1);
+    });
+
+    // SW
+    if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+      window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+    }
+  })();
+  </script>
+</body>
+</html>
