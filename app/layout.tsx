@@ -20,9 +20,9 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Zafer Balıkçılık Artur — Balıkesir Karaağaç · Deniz Sofrası",
-  description: "Balıkesir Karaağaç'ta günlük taze balık, usta eli mezeler ve denize bakan açık hava sofrası. Rezervasyon: 0532 798 52 44 — Zafer Balıkçılık Artur.",
-  keywords: "balıkesir balık restoranı, zafer balıkçılık, karaağaç balıkçı, artur balık, balık restoran, taze balık balıkesir, balık mezeleri",
+  title: "Zafer Balıkçılık Artur — Balıkesir Gömeç · Deniz Sofrası",
+  description: "Balıkesir Gömeç Artur'da günlük taze balık, usta eli mezeler ve denize bakan açık hava sofrası. Rezervasyon: 0544 352 73 71 — Zafer Balıkçılık Artur.",
+  keywords: "balıkesir balık restoranı, zafer balıkçılık, gömeç balıkçı, artur balık, balık restoran, taze balık balıkesir, balık mezeleri",
   metadataBase: new URL("https://zaferbalikcilik.com.tr"),
   verification: {
     google: "CN1TAl-2uFp9yYydRYMkNaOD6XcdUXxWdgeDFIPO5ww",

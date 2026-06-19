@@ -110,7 +110,7 @@ export default function MenuClient({ categories, menuItems, settings }: MenuClie
     return getFilteredItems(catId).length > 0;
   };
 
-  const formattedPhone = (settings.phone || "0532 798 52 44").replace(/\s+/g, "").replace("+", "");
+  const formattedPhone = (settings.phone || "0544 352 73 71").replace(/\s+/g, "").replace("+", "");
 
   return (
     <div className="menu-page">
@@ -135,7 +135,7 @@ export default function MenuClient({ categories, menuItems, settings }: MenuClie
             </span>
             <div>
               <strong>Zafer Balıkçılık</strong>
-              <small>Karaağaç · Balıkesir</small>
+              <small>Artur Gömeç · Balıkesir</small>
             </div>
           </div>
 
@@ -144,24 +144,21 @@ export default function MenuClient({ categories, menuItems, settings }: MenuClie
             <span>Mevsim</span> <em>sofrası.</em>
           </h1>
           <p className="m-sub">
-            Mevsim balığı, ev yapımı meze, kömürde közleme. Fiyatlar bilgi amaçlıdır; günlük tedarike göre değişebilir.
+            Mevsim balığı, taze salata ve pleyt ızgara. Fiyatlar bilgi amaçlıdır; günlük tedarike göre değişebilir.
             Güncel için telefonla doğrulayın.
           </p>
 
           <div className="m-hero-actions">
-            <a href={`tel:${settings.phone_intl || '+905327985244'}`} className="btn btn-gold">
-              Ara · {settings.phone || "0532 798 52 44"}
+            <a href={`tel:${settings.phone_intl || '+905443527371'}`} className="btn btn-gold">
+              Ara · {settings.phone || "0544 352 73 71"}
             </a>
             <a
-              href={`https://wa.me/${formattedPhone}?text=Merhaba,%20rezervasyon%20yapmak%20istiyorum.`}
+              href="https://www.google.com/maps/search/?api=1&query=Zafer+Bal%C4%B1k%C3%A7%C4%B1l%C4%B1k+Artur+G%C3%B6me%C3%A7+Bal%C4%B1kesir"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-wa"
+              className="btn btn-line"
             >
-              <svg width="16" height="16">
-                <use href="#i-wa" />
-              </svg>
-              <span>WhatsApp</span>
+              Yol Tarifi
             </a>
           </div>
         </div>
@@ -378,7 +375,7 @@ export default function MenuClient({ categories, menuItems, settings }: MenuClie
                   alabilirsiniz.
                 </li>
                 <li>Alerjeniz varsa lütfen siparişten önce bildirin; meze ve sosları size göre düzenleriz.</li>
-                <li>Açık hava bölümünde 40, kapalı salonda 30 kişilik kapasitemiz vardır. Geniş gruplar için rezervasyon önerilir.</li>
+                <li>Toplamda 10 masa kapasitemiz vardır. Rahatınız için rezervasyon önerilir.</li>
               </ul>
             </div>
           </section>
@@ -390,12 +387,12 @@ export default function MenuClient({ categories, menuItems, settings }: MenuClie
         <div className="container m-foot-inner">
           <div>
             <strong>Zafer Balıkçılık Artur</strong>
-            <p>{settings.address || "Şok yanı, Karaağaç Artur girişi · Balıkesir"}</p>
+            <p>{settings.address || "Şok yanı, Artur Gömeç girişi · Balıkesir"}</p>
           </div>
           <div className="m-foot-links">
             <Link href="/">Ana sayfa</Link>
-            <a href={`tel:${settings.phone_intl || '+905327985244'}`}>
-              {settings.phone || "0532 798 52 44"}
+            <a href={`tel:${settings.phone_intl || '+905443527371'}`}>
+              {settings.phone || "0544 352 73 71"}
             </a>
           </div>
         </div>
@@ -403,16 +400,17 @@ export default function MenuClient({ categories, menuItems, settings }: MenuClie
 
       {/* STICKY ACTION BAR */}
       <div className="m-sticky">
-        <a href={`tel:${settings.phone_intl || '+905327985244'}`} className="m-sticky-btn m-sticky-call">
+        <a href={`tel:${settings.phone_intl || '+905443527371'}`} className="m-sticky-btn m-sticky-call">
           Ara
         </a>
         <a
-          href={`https://wa.me/${formattedPhone}?text=Merhaba,%20rezervasyon%20yapmak%20istiyorum.`}
+          href="https://www.google.com/maps/search/?api=1&query=Zafer+Bal%C4%B1k%C3%A7%C4%B1l%C4%B1k+Artur+G%C3%B6me%C3%A7+Bal%C4%B1kesir"
           target="_blank"
           rel="noopener noreferrer"
           className="m-sticky-btn m-sticky-wa"
+          style={{ background: "#2c4a3a", color: "#faf5ea" }}
         >
-          WhatsApp
+          Yol Tarifi
         </a>
         <button
           className="m-sticky-btn m-sticky-top"

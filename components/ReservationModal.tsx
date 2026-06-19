@@ -48,25 +48,10 @@ export default function ReservationModal({ isOpen, onClose, phone }: Reservation
         note: note.trim() || null,
       });
 
-      // 2. Prepare WhatsApp message
-      const lines = [
-        "*Rezervasyon Talebi — Zafer Balıkçılık Artur*",
-        "—",
-        `Ad      : ${name}`,
-        `Tarih   : ${date}`,
-        `Saat    : ${time}`,
-        `Kişi    : ${guests}`,
-        `Telefon : ${phoneInput}`,
-      ];
-      if (note.trim()) {
-        lines.push(`Not     : ${note.trim()}`);
-      }
-
       const formattedPhone = phone.replace(/\s+/g, "").replace("+", "");
-      const msg = encodeURIComponent(lines.join("\n"));
 
-      // Open WhatsApp in new tab
-      window.open(`https://wa.me/${formattedPhone}?text=${msg}`, "_blank", "noopener,noreferrer");
+      // Open Phone Dial instead of WhatsApp
+      window.location.href = `tel:${formattedPhone}`;
 
       // Reset form and close
       setName("");
@@ -110,7 +95,7 @@ export default function ReservationModal({ isOpen, onClose, phone }: Reservation
                 <em>ayıralım</em>.
               </h2>
               <p className="modal-side-lede">
-                Bilgilerinizi bırakın, WhatsApp üzerinden anında onay döndürelim.
+                Bilgilerinizi bırakın, onay için arama ekranına yönlendirileceksiniz.
               </p>
               <ul className="modal-side-list">
                 <li>
@@ -123,7 +108,7 @@ export default function ReservationModal({ isOpen, onClose, phone }: Reservation
                 </li>
                 <li>
                   <span>Konum</span>
-                  <b>Karaağaç, Balıkesir</b>
+                  <b>Artur Gömeç, Balıkesir</b>
                 </li>
               </ul>
             </div>
@@ -133,7 +118,7 @@ export default function ReservationModal({ isOpen, onClose, phone }: Reservation
             <h2 id="resTitle" className="modal-form-title">
               Sofra ayır
             </h2>
-            <p className="modal-form-sub">Formu doldurun, talebiniz WhatsApp&apos;a düşsün.</p>
+            <p className="modal-form-sub">Formu doldurun, onay için doğrudan arama ekranına yönlendirileceksiniz.</p>
 
             <div className="field">
               <label htmlFor="r-name">Ad Soyad</label>
@@ -222,17 +207,17 @@ export default function ReservationModal({ isOpen, onClose, phone }: Reservation
             </div>
             <div className="field-actions">
               <button type="submit" className="btn btn-gold magnetic" disabled={submitting}>
-                <span>{submitting ? "Gönderiliyor..." : "WhatsApp ile gönder"}</span>
+                <span>{submitting ? "Gönderiliyor..." : "Rezervasyonu Ara ve Tamamla"}</span>
                 <svg width="14" height="14">
                   <use href="#i-arrow" />
                 </svg>
               </button>
               <a href={`tel:${formattedPhone}`} className="btn btn-line">
-                Telefon et
+                Doğrudan Telefon Et
               </a>
             </div>
             <small className="field-note">
-              Bilgileriniz veri tabanına kaydedilir ve onay için WhatsApp&apos;a yönlendirilir.
+              Bilgileriniz veri tabanına kaydedilir ve onay için arama ekranına yönlendirilir.
             </small>
           </form>
         </div>

@@ -38,10 +38,10 @@ export default function AdminSettingsPage() {
   });
 
   const [localBoardItems, setLocalBoardItems] = useState<BoardItem[]>([
-    { tag: "öne çıkan", name: "Çupra", note: "kömürde · 12–14 dk" },
-    { tag: "mevsim", name: "Karagöz", note: "kömür közü · ½ kg" },
-    { tag: "klasik", name: "Lakerda", note: "ince dilim · rakı yoldaşı" },
-    { tag: "sınırlı", name: "Ahtapot", note: "ızgara · kapari + patates" },
+    { tag: "öne çıkan", name: "Çupra", note: "pleyt ızgara · 12–14 dk" },
+    { tag: "mevsim", name: "Karagöz", note: "pleyt ızgara · ½ kg" },
+    { tag: "klasik", name: "Lakerda", note: "ince dilim · taze meze" },
+    { tag: "sınırlı", name: "Kalamar", note: "ızgara · pleyt ızgara veya tava" },
   ]);
 
   const [localFishCalendar, setLocalFishCalendar] = useState<FishCalendarItem[]>([
@@ -69,21 +69,21 @@ export default function AdminSettingsPage() {
 
         // Fill keys in state, keeping fallbacks for new ones
         setSettings({
-          phone: obj.phone || "0532 798 52 44",
-          phone_intl: obj.phone_intl || "+905327985244",
-          address: obj.address || "Şok yanı, Karaağaç Artur girişi · Balıkesir",
+          phone: obj.phone || "0544 352 73 71",
+          phone_intl: obj.phone_intl || "+905443527371",
+          address: obj.address || "Şok yanı, Artur Gömeç Artur girişi · Balıkesir",
           hours_open: obj.hours_open || "08:00",
           hours_close: obj.hours_close || "21:00",
           announcement: obj.announcement || "",
           capacity: obj.capacity || "70",
           hero_title: obj.hero_title || "Denizden sofranıza tazelik",
-          hero_desc: obj.hero_desc || "Karaağaç'ın akşam esintisinde, günlük ağdan tezgâha, tezgâhtan sofraya. Zafer Balıkçılık Artur, üç kuşak balık ustalığını alçak sesle anlatan bir deniz sofrası.",
-          manifesto_text: obj.manifesto_text || "Balık günlük olur. Sofra sabırlı. Biz aceleyi tezgâhın değil, tencerenin hızına bırakırız. Karaağaç'ın tuzlu rüzgârı mezeyi, kömür közü balığı pişirir; biz yalnızca doğru anı beklemeyi öğretiriz.",
-          signature_name: obj.signature_name || "Kömürde çupra ızgara.",
+          hero_desc: obj.hero_desc || "Artur Gömeç'ın akşam esintisinde, günlük ağdan tezgâha, tezgâhtan sofraya. Zafer Balıkçılık Artur, üç kuşak balık ustalığını alçak sesle anlatan bir deniz sofrası.",
+          manifesto_text: obj.manifesto_text || "Balık günlük olur. Sofra sabırlı. Biz aceleyi tezgâhın değil, tencerenin hızına bırakırız. Artur Gömeç'ın tuzlu rüzgârı mezeyi, pleyt ızgara balığı pişirir; biz yalnızca doğru anı beklemeyi öğretiriz.",
+          signature_name: obj.signature_name || "Pleyt ızgarada çipura.",
           signature_desc: obj.signature_desc || "Günün tezgâhından, ustanın seçtiği çupra; tuzlanır, dinlendirilir, közün üstünde sabırla pişirilir. Yanında zeytinyağlı semizotu, deniz börülcesi ve roka. Bir limon, bir kadeh; gerisi denizin işi.",
           signature_side: obj.signature_side || "semizotu · börülce · roka",
           signature_drink: obj.signature_drink || "sek rakı · beyaz şarap",
-          signature_cooking: obj.signature_cooking || "kömür közü · 12—14 dk",
+          signature_cooking: obj.signature_cooking || "pleyt ızgara · 12—14 dk",
           signature_season: obj.signature_season || "kasım — şubat aralığı",
         });
 
@@ -262,7 +262,7 @@ export default function AdminSettingsPage() {
                   value={settings.phone}
                   onChange={(e) => handleChange("phone", e.target.value)}
                   className="w-full px-4 py-2.5 bg-[#070e14] border border-[#c9a36b]/15 focus:border-[#c9a36b] rounded-lg outline-none text-slate-200 text-sm"
-                  placeholder="0532 798 52 44"
+                  placeholder="0544 352 73 71"
                 />
               </div>
 
@@ -277,7 +277,7 @@ export default function AdminSettingsPage() {
                   value={settings.phone_intl}
                   onChange={(e) => handleChange("phone_intl", e.target.value)}
                   className="w-full px-4 py-2.5 bg-[#070e14] border border-[#c9a36b]/15 focus:border-[#c9a36b] rounded-lg outline-none text-slate-200 text-sm"
-                  placeholder="+905327985244"
+                  placeholder="+905443527371"
                 />
               </div>
             </div>
@@ -334,7 +334,7 @@ export default function AdminSettingsPage() {
                 value={settings.address}
                 onChange={(e) => handleChange("address", e.target.value)}
                 className="w-full px-4 py-2.5 bg-[#070e14] border border-[#c9a36b]/15 focus:border-[#c9a36b] rounded-lg outline-none text-slate-200 text-sm"
-                placeholder="Şok yanı, Karaağaç Artur girişi · Balıkesir"
+                placeholder="Şok yanı, Artur Gömeç Artur girişi · Balıkesir"
               />
             </div>
           </div>
@@ -419,7 +419,7 @@ export default function AdminSettingsPage() {
                   value={settings.signature_name}
                   onChange={(e) => handleChange("signature_name", e.target.value)}
                   className="w-full px-4 py-2.5 bg-[#070e14] border border-[#c9a36b]/15 focus:border-[#c9a36b] rounded-lg outline-none text-slate-200 text-sm"
-                  placeholder="Kömürde çupra ızgara."
+                  placeholder="Pleyt ızgarada çipura."
                 />
               </div>
 
@@ -434,7 +434,7 @@ export default function AdminSettingsPage() {
                   value={settings.signature_cooking}
                   onChange={(e) => handleChange("signature_cooking", e.target.value)}
                   className="w-full px-4 py-2.5 bg-[#070e14] border border-[#c9a36b]/15 focus:border-[#c9a36b] rounded-lg outline-none text-slate-200 text-sm"
-                  placeholder="kömür közü · 12—14 dk"
+                  placeholder="pleyt ızgara · 12—14 dk"
                 />
               </div>
             </div>
@@ -551,7 +551,7 @@ export default function AdminSettingsPage() {
                         value={item.note}
                         onChange={(e) => handleBoardItemChange(idx, "note", e.target.value)}
                         className="w-full px-2.5 py-1.5 bg-[#070e14] border border-[#c9a36b]/15 focus:border-[#c9a36b] rounded text-xs text-slate-200 outline-none"
-                        placeholder="Örn: kömürde · 12–14 dk"
+                        placeholder="Örn: pleyt ızgara · 12–14 dk"
                       />
                     </div>
                   </div>

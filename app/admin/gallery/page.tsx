@@ -269,7 +269,7 @@ export default function AdminGalleryPage() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Örn: Kömür ateşinde pişirilen günlük çupra"
+                  placeholder="Örn: Pleyt ızgarada pişirilen günlük çipura"
                   value={caption}
                   onChange={(e) => setCaption(e.target.value)}
                   className="w-full px-4 py-2.5 bg-[#070e14] border border-[#506573]/20 focus:border-[#c9a36b]/60 rounded-lg outline-none text-[#faf5ea] text-sm"

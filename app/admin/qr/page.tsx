@@ -79,11 +79,11 @@ function QRCard({ num, title, desc, text, name, filename }: QRCardProps) {
 
 export default function AdminQRPage() {
   const [menuUrl, setMenuUrl] = useState("https://zaferbalikcilik.com.tr/menu");
-  const [phone, setPhone] = useState("+905327985244");
+  const [phone, setPhone] = useState("+905443527371");
   const [whatsappMsg, setWhatsappMsg] = useState("Merhaba, rezervasyon yaptırmak istiyorum.");
   const [placeId, setPlaceId] = useState("");
   const [customReviewUrl, setCustomReviewUrl] = useState("");
-  const [mapsLocation, setMapsLocation] = useState("Zafer Balıkçılık Artur Karaağaç Balıkesir");
+  const [mapsLocation, setMapsLocation] = useState("Zafer Balıkçılık Artur Gömeç Balıkesir");
   const [websiteUrl, setWebsiteUrl] = useState("https://zaferbalikcilik.com.tr");
 
   const [loading, setLoading] = useState(true);
@@ -289,7 +289,7 @@ export default function AdminQRPage() {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 className="w-full px-3 py-2 bg-[#070e14]/90 border border-[#506573]/20 focus:border-[#c9a36b]/80 rounded outline-none text-[#faf5ea]"
-                placeholder="+905327985244"
+                placeholder="+905443527371"
               />
               <span className="text-[10px] text-[#506573]">Uluslararası formatta yazın (Örn: +90...)</span>
             </div>

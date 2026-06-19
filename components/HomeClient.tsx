@@ -24,10 +24,10 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
       console.error("Error parsing board_items:", e);
     }
     return [
-      { tag: "öne çıkan", name: "Çupra", note: "kömürde · 12–14 dk" },
-      { tag: "mevsim", name: "Karagöz", note: "kömür közü · ½ kg" },
-      { tag: "klasik", name: "Lakerda", note: "ince dilim · rakı yoldaşı" },
-      { tag: "sınırlı", name: "Ahtapot", note: "ızgara · kapari + patates" },
+      { tag: "öne çıkan", name: "Çupra", note: "pleyt ızgara · 12–14 dk" },
+      { tag: "mevsim", name: "Karagöz", note: "pleyt ızgara · ½ kg" },
+      { tag: "klasik", name: "Lakerda", note: "ince dilim · taze meze" },
+      { tag: "sınırlı", name: "Kalamar", note: "pleyt ızgara veya tava" },
     ];
   })();
 
@@ -240,7 +240,7 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
 
   const months = ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"];
 
-  const formattedPhone = (settings.phone || "0532 798 52 44").replace(/\s+/g, "").replace("+", "");
+  const formattedPhone = (settings.phone || "0544 352 73 71").replace(/\s+/g, "").replace("+", "");
 
   // Open reservation modal trigger helper
   const triggerOpenReserve = () => {
@@ -259,13 +259,13 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
         </div>
 
         <div className="hero-marks">
-          <span className="hero-mark hm-1">Est. <em>Karaağaç</em></span>
+          <span className="hero-mark hm-1">Est. <em>Artur Gömeç</em></span>
           <span className="hero-mark hm-2">39°N · 27°E</span>
           <span className="hero-mark hm-3">№ 04</span>
         </div>
 
         <div className="container hero-content">
-          <p className="kicker"><i></i> Balıkesir · Karaağaç · denize <em>120 m</em></p>
+          <p className="kicker"><i></i> Balıkesir · Artur Gömeç · denize <em>120 m</em></p>
 
           <h1 className="hero-title">
             {(settings.hero_title || "Denizden sofranıza tazelik").split(" ").map((word, idx) => {
@@ -284,7 +284,7 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
             className="hero-lede"
             data-fade
             dangerouslySetInnerHTML={{
-              __html: settings.hero_desc || "Karaağaç&apos;ın akşam esintisinde, günlük ağdan tezgâha, tezgâhtan sofraya. Zafer Balıkçılık Artur, üç kuşak balık ustalığını alçak sesle anlatan bir <em>deniz sofrası</em>."
+              __html: settings.hero_desc || "Gömeç Artur&apos;un akşam esintisinde, günlük ağdan tezgâha, tezgâhtan sofraya. Zafer Balıkçılık Artur, üç kuşak balık ustalığını alçak sesle anlatan bir <em>deniz sofrası</em>."
             }}
           />
 
@@ -346,15 +346,15 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
           <span>günlük taze balık</span><i>✦</i>
           <span>açık hava sofrası</span><i>✦</i>
           <span>ev yapımı mezeler</span><i>✦</i>
-          <span>kömürde ızgara</span><i>✦</i>
-          <span>karaağaç · balıkesir</span><i>✦</i>
-          <span>{settings.phone || "0532 798 52 44"}</span><i>✦</i>
+          <span>pleyt ızgara</span><i>✦</i>
+          <span>Artur Gömeç · balıkesir</span><i>✦</i>
+          <span>{settings.phone || "0544 352 73 71"}</span><i>✦</i>
           <span>günlük taze balık</span><i>✦</i>
           <span>açık hava sofrası</span><i>✦</i>
           <span>ev yapımı mezeler</span><i>✦</i>
-          <span>kömürde ızgara</span><i>✦</i>
-          <span>karaağaç · balıkesir</span><i>✦</i>
-          <span>{settings.phone || "0532 798 52 44"}</span><i>✦</i>
+          <span>pleyt ızgara</span><i>✦</i>
+          <span>Artur Gömeç · balıkesir</span><i>✦</i>
+          <span>{settings.phone || "0544 352 73 71"}</span><i>✦</i>
         </div>
       </div>
 
@@ -387,12 +387,12 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
             className="manifesto-text"
             data-words
             dangerouslySetInnerHTML={{
-              __html: settings.manifesto_text || "Balık günlük olur. <em>Sofra</em> sabırlı. Biz <em>aceleyi</em> tezgâhın değil, <em>tencerenin</em> hızına bırakırız. Karaağaç&apos;ın <em>tuzlu rüzgârı</em> mezeyi, kömür közü balığı pişirir; biz yalnızca <em>doğru anı</em> beklemeyi öğretiriz."
+              __html: settings.manifesto_text || "Balık günlük olur. <em>Sofra</em> sabırlı. Biz <em>aceleyi</em> tezgâhın değil, <em>tencerenin</em> hızına bırakırız. Artur&apos;un <em>tuzlu rüzgârı</em> mezeyi, pleyt ızgara balığı pişirir; biz yalnızca <em>doğru anı</em> beklemeyi öğretiriz."
             }}
           />
           <div className="manifesto-sign" data-fade>
             <div className="ms-line"></div>
-            <p><strong>Artur Mutfağı</strong> · Karaağaç, Balıkesir</p>
+            <p><strong>Artur Mutfağı</strong> · Artur Gömeç, Balıkesir</p>
           </div>
         </div>
       </section>
@@ -418,7 +418,7 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
             <h2 className="display"><span>Denizin</span> <em>dilini</em><br />bilenler.</h2>
 
             <p className="story-lead" data-fade>
-              Karaağaç sahili, Balıkesir&apos;in kıyıya en alçak sesle bakan köşesi. Zafer Balıkçılık Artur, bu sahilin ritmiyle açar, ritmiyle kapanır. Sabah erkenden tezgâha gelen mevsim balığını ustamızın elinde dinlendirir; akşam, kömür közünün üzerinde sofranızla buluştururuz.
+              Artur Gömeç sahili, Balıkesir&apos;in kıyıya en alçak sesle bakan köşesi. Zafer Balıkçılık Artur, bu sahilin ritmiyle açar, ritmiyle kapanır. Sabah erkenden tezgâha gelen mevsim balığını ustamızın elinde dinlendirir; akşam, pleyt ızgaranın üzerinde sofranızla buluştururuz.
             </p>
 
             <p data-fade>
@@ -428,8 +428,8 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
             <ul className="story-list" data-fade>
               <li><i>↳</i> günlük tedarik, mevsim balığı önceliği</li>
               <li><i>↳</i> ev yapımı meze, ustanın eli</li>
-              <li><i>↳</i> kömürde ızgara, geleneksel tava</li>
-              <li><i>↳</i> açık hava ve kapalı salon · 70 kişilik</li>
+              <li><i>↳</i> pleyt ızgara, geleneksel tava</li>
+              <li><i>↳</i> açık hava ve kapalı salon · 10 masalık</li>
             </ul>
 
             <div className="story-stats">
@@ -446,8 +446,8 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
                 <span>kuşak ustalık</span>
               </div>
               <div className="stat">
-                <strong data-count="70">70</strong>
-                <span>kişilik sofra</span>
+                <strong data-count="10">10</strong>
+                <span>masalık sofra</span>
               </div>
             </div>
           </div>
@@ -498,7 +498,7 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
               <div className="bc-body">
                 <div className="bc-icon"><svg width="22" height="22"><use href="#i-wave" /></svg></div>
                 <h3>Açık hava sofrası</h3>
-                <p>Denize 120 m mesafede, esinti eşliğinde uzun akşamlar. Kapalı salonda 70 kişilik kapasite.</p>
+                <p>Denize 120 m mesafede, esinti eşliğinde uzun akşamlar. Kapalı salonda 10 masalık kapasite.</p>
                 <span className="bc-num">03</span>
               </div>
             </article>
@@ -507,8 +507,8 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
               <div className="bc-overlay"></div>
               <div className="bc-body">
                 <div className="bc-icon"><svg width="22" height="22"><use href="#i-flame" /></svg></div>
-                <h3>Kömürde közleme</h3>
-                <p>Çıra ısrarı, ateş sabrı; geleneksel pişirme.</p>
+                <h3>Pleyt ızgara</h3>
+                <p>Izgara özeni, usta pişirimi.</p>
                 <span className="bc-num">04</span>
               </div>
             </article>
@@ -517,8 +517,8 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
               <div className="bc-overlay"></div>
               <div className="bc-body">
                 <div className="bc-icon"><svg width="22" height="22"><use href="#i-glass" /></svg></div>
-                <h3>Zengin içecek</h3>
-                <p>Rakı, yerli şarap, bira; alkolsüz seçenekler.</p>
+                <h3>Taze içecekler</h3>
+                <p>Taze şalgam, ayran ve serinletici alkolsüz içecekler.</p>
                 <span className="bc-num">05</span>
               </div>
             </article>
@@ -544,7 +544,7 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
               <p className="section-num">Ritim · ek bölüm</p>
               <h2 className="display"><em>Ustanın</em><br />bir günü.</h2>
             </div>
-            <p className="rhythm-note">Saat saat, balıkçının ritmi.<br /><em>Sabahın ilk ışığından</em> son köze.</p>
+            <p className="rhythm-note">Saat saat, balıkçının ritmi.<br /><em>Sabahın ilk ışığından</em> son siparişe.</p>
           </header>
 
           <ol className="rhythm-line">
@@ -553,9 +553,9 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
               { time: "08:00", title: "Kapı açık", desc: "Aile sahili dolaşır, kahveler taze; tezgâhta sergilenen mevsim balıkları görülebilir." },
               { time: "11:00", title: "Meze tezgâhı", desc: "Haydari karıştırılır, ezme dövülür, lakerda dilimlenir. Hepsi ev yapımı, hepsi günlük." },
               { time: "14:00", title: "Öğle sofrası", desc: "Hafif öğle, küçük gruplar. Tava ve sıcak başlangıçlar yoğunlaşır." },
-              { time: "17:00", title: "Kömür yanar", desc: "Akşam izgaralarına hazırlık; kömür közü bekletilir, ateş sabırla olgunlaştırılır." },
+              { time: "17:00", title: "Izgara ısınır", desc: "Akşam ızgaralarına hazırlık; pleyt ızgara ısıtılır, hazırlıklar tamamlanır." },
               { time: "19:30", title: "Akşam masaları", desc: "Sofranın asıl saati. Açık hava dolar, balık közde, sohbet uzun." },
-              { time: "21:00", title: "Son kömür", desc: "Son tabaklar çıkar, çay servis edilir. Akşam söneninceye dek devam eder." },
+              { time: "21:00", title: "Son servis", desc: "Son tabaklar çıkar, çay servis edilir. Akşam sona erene dek devam eder." },
             ].map((r, i) => (
               <li key={i}>
                 <span className="rl-time">{r.time.split(":")[0]}<i>:{r.time.split(":")[1]}</i></span>
@@ -583,17 +583,17 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
             <h2
               className="display"
               dangerouslySetInnerHTML={{
-                __html: settings.signature_name || "Kömürde<br /><em>çupra</em> ızgara."
+                __html: settings.signature_name || "Pleyt ızgarada<br /><em>çipura</em>."
               }}
             />
             <p className="sig-lede" data-fade>
-              {settings.signature_desc || "Günün tezgâhından, ustanın seçtiği çupra; tuzlanır, dinlendirilir, közün üstünde sabırla pişirilir. Yanında zeytinyağlı semizotu, deniz börülcesi ve roka. Bir limon, bir kadeh; gerisi denizin işi."}
+              {settings.signature_desc || "Günün tezgâhından, ustanın seçtiği çipura; tuzlanır, dinlendirilir, pleyt ızgarada sabırla pişirilir. Yanında zeytinyağlı deniz börülcesi ve roka. Bir limon; gerisi denizin işi."}
             </p>
 
             <ul className="sig-pairs" data-fade>
-              <li><i>yan</i> {settings.signature_side || "semizotu · börülce · roka"}</li>
-              <li><i>içecek</i> {settings.signature_drink || "sek rakı · beyaz şarap"}</li>
-              <li><i>pişirme</i> {settings.signature_cooking || "kömür közü · 12—14 dk"}</li>
+              <li><i>yan</i> {settings.signature_side || "deniz börülcesi · roka"}</li>
+              <li><i>içecek</i> {settings.signature_drink || "şalgam · ayran · asitli içecekler"}</li>
+              <li><i>pişirme</i> {settings.signature_cooking || "pleyt ızgara · 12—14 dk"}</li>
               <li><i>mevsim</i> {settings.signature_season || "kasım — şubat aralığı"}</li>
             </ul>
 
@@ -758,15 +758,7 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
             <h2 className="display"><em>Aklınızdaki</em><br />sorular.</h2>
             <p>Merak ettiklerinizin çoğu burada cevaplanır. Bulamadığınızı sorun, telefonla anında dönelim.</p>
             <div className="faq-cta">
-              <a href={`tel:${formattedPhone}`} className="btn btn-line magnetic">Telefon et</a>
-              <a
-                href={`https://wa.me/${formattedPhone}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-wa magnetic"
-              >
-                WhatsApp
-              </a>
+              <a href={`tel:${formattedPhone}`} className="btn btn-gold magnetic">Telefonla Ara</a>
             </div>
           </div>
 
@@ -780,7 +772,7 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
               <div className="fq-a">
                 <p>
                   Sitedeki <strong>Sofra Ayır</strong> formundan bilgilerinizi bırakarak ya da doğrudan{" "}
-                  <strong>{settings.phone || "0532 798 52 44"}</strong> numaralı hattan arayarak / WhatsApp üzerinden.
+                  <strong>{settings.phone || "0544 352 73 71"}</strong> numaralı hattan arayarak.
                   Hafta sonu akşamları için 1–2 gün önceden yerinizi ayırtmanızı öneririz.
                 </p>
               </div>
@@ -853,19 +845,11 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
               className="btn btn-gold magnetic js-open-reserve"
               data-cursor="rezerve"
             >
-              <span>Sofra ayır</span>
+              <span>Sofra Ayır</span>
               <svg width="14" height="14"><use href="#i-arrow" /></svg>
             </button>
-            <a
-              href={`https://wa.me/${formattedPhone}?text=Merhaba,%20rezervasyon%20yapmak%20istiyorum.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-wa magnetic"
-            >
-              WhatsApp
-            </a>
-            <a href={`tel:${formattedPhone}`} className="btn btn-ghost magnetic">
-              {settings.phone || "0532 798 52 44"}
+            <a href={`tel:${formattedPhone}`} className="btn btn-line magnetic">
+              Ara · {settings.phone || "0544 352 73 71"}
             </a>
           </div>
         </div>
@@ -876,16 +860,16 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
         <div className="container contact-grid">
           <div className="contact-body">
             <p className="section-num">№ 08 · İletişim</p>
-            <h2 className="display">Karaağaç&apos;ta<br /><em>buluşalım</em>.</h2>
+            <h2 className="display">Artur&apos;da<br /><em>buluşalım</em>.</h2>
 
             <ul className="contact-list">
               <li>
                 <span className="cl-key">Adres</span>
-                <span className="cl-val">{settings.address || "Şok yanı, Karaağaç Artur girişi, Artur Yolu Cad, Karaağaç / Gömeç / Balıkesir"}</span>
+                <span className="cl-val">{settings.address || "Şok yanı, Artur Gömeç girişi, Artur Yolu Cad, Gömeç / Balıkesir"}</span>
               </li>
               <li>
                 <span className="cl-key">Telefon</span>
-                <span className="cl-val"><a href={`tel:${formattedPhone}`}>{settings.phone || "0532 798 52 44"}</a></span>
+                <span className="cl-val"><a href={`tel:${formattedPhone}`}>{settings.phone || "0544 352 73 71"}</a></span>
               </li>
               <li>
                 <span className="cl-key">Saatler</span>
@@ -903,15 +887,7 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
             </ul>
 
             <div className="contact-cta">
-              <a href={`tel:${formattedPhone}`} className="btn btn-gold magnetic">Ara</a>
-              <a
-                href={`https://wa.me/${formattedPhone}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-wa magnetic"
-              >
-                WhatsApp
-              </a>
+              <a href={`tel:${formattedPhone}`} className="btn btn-gold magnetic">Telefonla Ara</a>
             </div>
           </div>
 
@@ -919,7 +895,7 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
             <div className="cm-frame">
               <iframe
                 title="Zafer Balıkçılık Artur konumu"
-                src="https://www.google.com/maps?q=Zafer+Balıkçılık+Artur+Karaağaç+Balıkesir&output=embed"
+                src="https://www.google.com/maps?q=Zafer+Balıkçılık+Artur+Gömeç+Balıkesir&output=embed"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
@@ -945,13 +921,13 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
           <div className="footer-brand">
             <span className="brand-mark"><svg width="22" height="22"><use href="#i-anchor" /></svg></span>
             <strong>Zafer Balıkçılık <em>Artur</em></strong>
-            <p>Karaağaç&apos;ın denize bakan deniz sofrası. Günlük taze, üç kuşak ustalık.</p>
+            <p>Artur&apos;un denize bakan deniz sofrası. Günlük taze, üç kuşak ustalık.</p>
           </div>
           <div>
             <h5>İletişim</h5>
-            <p>{settings.address || "Karaağaç Artur Girişi, Balıkesir"}</p>
-            <p><a href={`tel:${formattedPhone}`}>{settings.phone || "0532 798 52 44"}</a></p>
-            <p><a href={`https://wa.me/${formattedPhone}`} target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
+            <p>{settings.address || "Artur Gömeç, Balıkesir"}</p>
+            <p><a href={`tel:${formattedPhone}`}>{settings.phone || "0544 352 73 71"}</a></p>
+            <p><a href={`tel:${formattedPhone}`}>Hemen Arayın</a></p>
           </div>
           <div>
             <h5>Saatler</h5>
@@ -967,24 +943,13 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
         </div>
         <div className="container footer-bottom">
           <small>© {new Date().getFullYear()} Zafer Balıkçılık Artur · tüm hakları saklıdır</small>
-          <small className="credit">tasarım <em>karaağaç esintisinde</em> hazırlandı</small>
+          <small className="credit">tasarım <em>deniz esintisinde</em> hazırlandı</small>
         </div>
       </footer>
 
       {/* FLOATING ACTIONS */}
       <div className="fab-stack">
-        <a
-          href={`https://wa.me/${formattedPhone}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="fab fab-wa"
-          aria-label="WhatsApp"
-        >
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-            <path d="M12 2a10 10 0 0 0-8.94 14.46L2 22l5.66-1.04A10 10 0 1 0 12 2zm5.13 14.42c-.22.62-1.27 1.18-1.78 1.22-.45.04-1.02.05-1.65-.1-.38-.1-.87-.26-1.5-.53-2.65-1.14-4.38-3.81-4.51-3.99-.13-.18-1.08-1.43-1.08-2.73 0-1.3.68-1.94.93-2.21.24-.27.53-.34.71-.34l.51.01c.16 0 .39-.06.6.46l.85 2.06c.07.13.11.29.02.46l-.26.4c-.13.18-.27.4-.13.66.13.27.6.99 1.29 1.6.88.78 1.62 1.02 1.86 1.13.24.1.38.09.52-.06l.62-.72c.18-.22.36-.18.62-.09l1.96.93c.27.13.45.2.51.31.07.13.07.73-.15 1.35z" />
-          </svg>
-        </a>
-        <a href={`tel:${formattedPhone}`} className="fab fab-call" aria-label="Telefon Et">
+        <a href={`tel:${formattedPhone}`} className="fab fab-call" style={{ bottom: "24px" }} aria-label="Telefon Et">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
             <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.44.57 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2z" />
           </svg>

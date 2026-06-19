@@ -109,7 +109,7 @@ export default function GalleryClient({ gallery }: GalleryClientProps) {
             denizden kareler.
           </h1>
           <p>
-            Karaağaç sahilinden, ustanın elinden, sofranın ortasından; Zafer Balıkçılık Artur&apos;un kayıt altına
+            Artur Gömeç sahilinden, ustanın elinden, sofranın ortasından; Zafer Balıkçılık Artur&apos;un kayıt altına
             alınmış halleri.
           </p>
 

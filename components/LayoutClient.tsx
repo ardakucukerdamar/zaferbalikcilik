@@ -411,7 +411,7 @@ export default function LayoutClient({
               <span>B</span><span>A</span><span>L</span><span>I</span><span>K</span><span>Ç</span><span>I</span><span>L</span><span>I</span><span>K</span>
             </div>
             <div className="loader-meta">
-              <span>Karaağaç · Balıkesir</span>
+              <span>Artur Gömeç · Balıkesir</span>
               <span className="loader-count" id="loaderCount">
                 {String(loaderTick).padStart(2, "0")}
               </span>
@@ -493,9 +493,13 @@ export default function LayoutClient({
             </li>
           </ul>
           <div className="panel-foot">
-            <a href={`tel:${settings.phone_intl || '+905327985244'}`}>{settings.phone || '0532 798 52 44'}</a>
-            <a href={`https://wa.me/${(settings.phone || '05327985244').replace(/\s+/g, '').replace('+', '')}`} target="_blank" rel="noopener noreferrer">
-              WhatsApp
+            <a href={`tel:${settings.phone_intl || '+905443527371'}`}>{settings.phone || '0544 352 73 71'}</a>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Zafer+Bal%C4%B1k%C3%A7%C4%B1l%C4%B1k+Artur+G%C3%B6me%C3%A7+Bal%C4%B1kesir"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Yol Tarifi
             </a>
             <a
               href="https://www.google.com/maps/search/?api=1&query=Zafer+Balıkçılık+Artur+Balıkesir"
@@ -510,10 +514,10 @@ export default function LayoutClient({
 
       {/* VERTICAL EDGE TEXT */}
       <div className="edge-text edge-text-left" aria-hidden="true">
-        <span>Z A F E R · B A L I K Ç I L I K · A R T U R · 0532 798 52 44</span>
+        <span>Z A F E R · B A L I K Ç I L I K · A R T U R · 0544 352 73 71</span>
       </div>
       <div className="edge-text edge-text-right" aria-hidden="true">
-        <span>K A R A A Ğ A Ç · B A L I K E S İ R · 39°39&apos;N 27°53&apos;E</span>
+        <span>A R T U R · G Ö M E Ç · B A L I K E S İ R · 39°39&apos;N 27°53&apos;E</span>
       </div>
 
       {/* RENDER HEADER */}
@@ -528,7 +532,7 @@ export default function LayoutClient({
             <span className="brand-text">
               <strong>Zafer Balıkçılık</strong>
               <small>
-                Artur · est. <em>karaağaç</em>
+                Artur · est. <em>gömeç</em>
               </small>
             </span>
           </Link>
@@ -725,7 +729,7 @@ export default function LayoutClient({
       <ReservationModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        phone={settings.phone || "0532 798 52 44"}
+        phone={settings.phone || "0544 352 73 71"}
       />
     </>
   );
