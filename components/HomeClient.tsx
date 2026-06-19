@@ -513,7 +513,7 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
               </div>
             </article>
 
-            <article className="bento-card bento-img" data-tilt style={{ backgroundImage: "url('/gorsel/11.jpeg')" }}>
+            <article className="bento-card bento-img" data-tilt style={{ backgroundImage: "url('https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=1200&q=80')" }}>
               <div className="bc-overlay"></div>
               <div className="bc-body">
                 <div className="bc-icon"><svg width="22" height="22"><use href="#i-glass" /></svg></div>
