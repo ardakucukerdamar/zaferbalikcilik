@@ -24,6 +24,9 @@ export const metadata: Metadata = {
   description: "Balıkesir Karaağaç'ta günlük taze balık, usta eli mezeler ve denize bakan açık hava sofrası. Rezervasyon: 0532 798 52 44 — Zafer Balıkçılık Artur.",
   keywords: "balıkesir balık restoranı, zafer balıkçılık, karaağaç balıkçı, artur balık, balık restoran, taze balık balıkesir, balık mezeleri",
   metadataBase: new URL("https://zaferbalikcilik.com.tr"),
+  verification: {
+    google: "CN1TAl-2uFp9yYydRYMkNaOD6XcdUXxWdgeDFIPO5ww",
+  },
 };
 
 export default async function RootLayout({
