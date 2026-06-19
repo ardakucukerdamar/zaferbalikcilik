@@ -414,7 +414,7 @@ export default function LayoutClient({
       </div>
 
       {/* RENDER HEADER */}
-      <header className="header" id="header">
+      <header className={`header ${pathname === "/galeri" ? "header-light-page" : ""}`} id="header">
         <div className="container header-inner">
           <Link href="/" className="brand" data-cursor="home">
             <span className="brand-mark">

@@ -473,7 +473,7 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
               </div>
             </article>
 
-            <article className="bento-card bento-img" data-tilt style={{ backgroundImage: "url('/gorsel/7.jpeg')" }}>
+            <article className="bento-card bento-img" data-tilt style={{ backgroundImage: "url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1000&q=80')" }}>
               <div className="bc-overlay"></div>
               <div className="bc-body">
                 <div className="bc-icon"><svg width="22" height="22"><use href="#i-hand" /></svg></div>
@@ -483,7 +483,7 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
               </div>
             </article>
 
-            <article className="bento-card bento-img" data-tilt style={{ backgroundImage: "url('/gorsel/8.jpeg')" }}>
+            <article className="bento-card bento-img" data-tilt style={{ backgroundImage: "url('https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=1000&q=80')" }}>
               <div className="bc-overlay"></div>
               <div className="bc-body">
                 <div className="bc-icon"><svg width="22" height="22"><use href="#i-leaf" /></svg></div>
@@ -493,7 +493,7 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
               </div>
             </article>
 
-            <article className="bento-card bento-wide bento-img" data-tilt style={{ backgroundImage: "url('/gorsel/9.jpeg')" }}>
+            <article className="bento-card bento-wide bento-img" data-tilt style={{ backgroundImage: "url('https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?auto=format&fit=crop&w=1200&q=80')" }}>
               <div className="bc-overlay"></div>
               <div className="bc-body">
                 <div className="bc-icon"><svg width="22" height="22"><use href="#i-wave" /></svg></div>
@@ -503,7 +503,7 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
               </div>
             </article>
 
-            <article className="bento-card bento-img" data-tilt style={{ backgroundImage: "url('/gorsel/10.jpeg')" }}>
+            <article className="bento-card bento-img" data-tilt style={{ backgroundImage: "url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1000&q=80')" }}>
               <div className="bc-overlay"></div>
               <div className="bc-body">
                 <div className="bc-icon"><svg width="22" height="22"><use href="#i-flame" /></svg></div>
