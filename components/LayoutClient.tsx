@@ -19,21 +19,14 @@ export default function LayoutClient({
   const [panelOpen, setPanelOpen] = useState(false);
   const [scrollWidth, setScrollWidth] = useState("0%");
   
-  // Custom cursor states
-  const [cursorActive, setCursorActive] = useState(false);
-  const [cursorHover, setCursorHover] = useState(false);
-  const [cursorLabel, setCursorLabel] = useState("");
-  const [cursorDark, setCursorDark] = useState(false);
+  // Custom cursor states disabled
 
   // Reservation Modal & Live Status States
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [liveText, setLiveText] = useState("Açık · 21:00'a kadar");
   const [closed, setClosed] = useState(false);
   
-  const mouseRef = useRef({ mx: 0, my: 0, rx: 0, ry: 0 });
-  const dotRef = useRef<HTMLDivElement>(null);
-  const ringRef = useRef<HTMLDivElement>(null);
-  const labelRef = useRef<HTMLSpanElement>(null);
+  // refs for cursor removed
 
   const isAdmin = pathname.startsWith("/admin");
 
@@ -140,72 +133,25 @@ export default function LayoutClient({
     };
   }, []);
 
-  // Custom cursor loop, magnetic items, tilt items, reveal on scroll, and counters
+  // Magnetic items, tilt items, reveal on scroll, and counters
   useEffect(() => {
-    // Check if desktop
+    // Check if desktop for mouse interactions
     const checkDesktop = () =>
       window.matchMedia("(hover:hover) and (pointer:fine) and (min-width: 1100px)").matches;
     
     let isDesktop = checkDesktop();
-    setCursorActive(isDesktop);
 
     const onResize = () => {
       isDesktop = checkDesktop();
-      setCursorActive(isDesktop);
-      if (!isDesktop) {
-        document.body.style.cursor = "";
-      }
     };
     window.addEventListener("resize", onResize);
 
-    // 1. Custom cursor lerp loop
-    let rafId: number;
-    const loop = () => {
-      const mouse = mouseRef.current;
-      mouse.rx += (mouse.mx - mouse.rx) * 0.18;
-      mouse.ry += (mouse.my - mouse.ry) * 0.18;
-
-      if (dotRef.current) {
-        dotRef.current.style.transform = `translate(${mouse.mx}px, ${mouse.my}px) translate(-50%, -50%)`;
-      }
-      if (ringRef.current) {
-        ringRef.current.style.transform = `translate(${mouse.rx}px, ${mouse.my}px) translate(-50%, -50%)`;
-      }
-      if (labelRef.current) {
-        labelRef.current.style.transform = `translate(${mouse.rx}px, ${mouse.my}px) translate(-50%, calc(-50% + 56px))`;
-      }
-      rafId = requestAnimationFrame(loop);
-    };
-
-    if (isDesktop && !isAdmin) {
-      document.body.style.cursor = "none";
-      rafId = requestAnimationFrame(loop);
-    }
-
-    const onMouseMove = (e: MouseEvent) => {
-      mouseRef.current.mx = e.clientX;
-      mouseRef.current.my = e.clientY;
-    };
-    document.addEventListener("mousemove", onMouseMove);
-
-    // 2. Cursor hover states & magnetic & tilt setups
+    // 1. Magnetic & tilt setups
     const setupInteractions = () => {
       if (!isDesktop || isAdmin) return;
 
       const items = document.querySelectorAll("a, button, .ga, [data-cursor], [data-tilt]");
       items.forEach((el) => {
-        const label = (el as HTMLElement).dataset.cursor || "";
-        const onMouseEnter = () => {
-          setCursorHover(true);
-          setCursorLabel(label);
-        };
-        const onMouseLeave = () => {
-          setCursorHover(false);
-          setCursorLabel("");
-        };
-        el.addEventListener("mouseenter", onMouseEnter);
-        el.addEventListener("mouseleave", onMouseLeave);
-
         // Magnetic effect if class contains .magnetic
         if (el.classList.contains("magnetic")) {
           const onMagneticMove = (e: Event) => {
@@ -243,7 +189,7 @@ export default function LayoutClient({
     // Delay a bit to ensure DOM is fully ready
     const timerId = setTimeout(setupInteractions, 600);
 
-    // 3. Reveal on scroll (IntersectionObserver)
+    // 2. Reveal on scroll (IntersectionObserver)
     let observer: IntersectionObserver;
     const revealItems = document.querySelectorAll("[data-fade], .reveal");
     if ("IntersectionObserver" in window && revealItems.length > 0) {
@@ -264,7 +210,7 @@ export default function LayoutClient({
       revealItems.forEach((el) => observer.observe(el));
     }
 
-    // 4. Stats Counter Animation
+    // 3. Stats Counter Animation
     let counterObserver: IntersectionObserver;
     const counters = document.querySelectorAll("[data-count]");
     const animateCount = (el: HTMLElement) => {
@@ -306,50 +252,11 @@ export default function LayoutClient({
       counters.forEach((c) => animateCount(c as HTMLElement));
     }
 
-    // 5. Detect dark sections for custom cursor invert
-    const darkSections = [".hero", ".mutfak", ".ctabar", ".footer", ".panel"];
-    let darkObserver: IntersectionObserver;
-    if ("IntersectionObserver" in window && isDesktop && !isAdmin) {
-      darkObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((en) => {
-            if (en.isIntersecting && en.intersectionRatio > 0.5) {
-              setCursorDark(true);
-            }
-          });
-        },
-        { threshold: [0.5] }
-      );
-      darkSections.forEach((sel) => {
-        const s = document.querySelector(sel);
-        if (s) darkObserver.observe(s);
-      });
-    }
-
-    const onMouseMoveTrackDark = () => {
-      if (!isDesktop || isAdmin) return;
-      const cy = mouseRef.current.my;
-      let isDark = false;
-      darkSections.forEach((sel) => {
-        const s = document.querySelector(sel);
-        if (!s) return;
-        const r = s.getBoundingClientRect();
-        if (cy >= r.top && cy <= r.bottom) isDark = true;
-      });
-      setCursorDark(isDark);
-    };
-    document.addEventListener("mousemove", onMouseMoveTrackDark);
-
     return () => {
       window.removeEventListener("resize", onResize);
-      document.removeEventListener("mousemove", onMouseMove);
-      document.removeEventListener("mousemove", onMouseMoveTrackDark);
-      cancelAnimationFrame(rafId);
       clearTimeout(timerId);
       if (observer) observer.disconnect();
       if (counterObserver) counterObserver.disconnect();
-      if (darkObserver) darkObserver.disconnect();
-      document.body.style.cursor = "";
     };
   }, [pathname, isAdmin]);
 
@@ -431,21 +338,7 @@ export default function LayoutClient({
         <i style={{ width: scrollWidth }}></i>
       </div>
 
-      {/* CUSTOM CURSOR */}
-      {cursorActive && (
-        <div
-          ref={ringRef}
-          className={`cursor ${cursorHover ? "hover" : ""} ${cursorLabel ? "label" : ""} ${cursorDark ? "dark" : ""}`}
-          id="cursor"
-          aria-hidden="true"
-        >
-          <div ref={dotRef} className="cursor-dot"></div>
-          <div className="cursor-ring"></div>
-          <span ref={labelRef} className="cursor-label" id="cursorLabel">
-            {cursorLabel}
-          </span>
-        </div>
-      )}
+      {/* CUSTOM CURSOR REMOVED */}
 
       {/* MOBILE PANEL */}
       <aside className={`panel ${panelOpen ? "open" : ""}`} id="panel" aria-hidden={!panelOpen}>
