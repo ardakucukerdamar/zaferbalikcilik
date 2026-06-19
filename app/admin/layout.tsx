@@ -106,6 +106,19 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       ),
     },
     {
+      name: "Karekod Paneli",
+      href: "/admin/qr",
+      icon: (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="3" width="7" height="7" rx="1" />
+          <rect x="14" y="3" width="7" height="7" rx="1" />
+          <rect x="14" y="14" width="7" height="7" rx="1" />
+          <rect x="3" y="14" width="7" height="7" rx="1" />
+          <path d="M7 7h2v2H7zM15 15h2v2h-2z" fill="currentColor" />
+        </svg>
+      ),
+    },
+    {
       name: "Genel Ayarlar",
       href: "/admin/settings",
       icon: (
@@ -193,6 +206,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               {pathname === "/admin/gallery" && "Galeri Yönetimi"}
               {pathname === "/admin/reservations" && "Rezervasyon Yönetimi"}
               {pathname === "/admin/reviews" && "Müşteri Yorumları"}
+              {pathname === "/admin/qr" && "Karekod Paneli"}
               {pathname === "/admin/settings" && "Genel Ayarlar"}
             </h1>
           </div>
