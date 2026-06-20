@@ -78,7 +78,7 @@ function QRCard({ num, title, desc, text, name, filename }: QRCardProps) {
 }
 
 export default function AdminQRPage() {
-  const [menuUrl, setMenuUrl] = useState("https://zaferbalikcilik.com.tr/menu");
+  const [menuUrl, setMenuUrl] = useState("https://zaferbalikcilik.com.tr/qr");
   const [phone, setPhone] = useState("+905443527371");
   const [whatsappMsg, setWhatsappMsg] = useState("Merhaba, rezervasyon yaptırmak istiyorum.");
   const [placeId, setPlaceId] = useState("");
@@ -366,11 +366,11 @@ export default function AdminQRPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 qr-grid-print">
             <QRCard
               num="№ 01"
-              title="Dijital Yemek Menüsü"
-              desc="Karekodu okutun; tam menü, güncel fiyatlar, günlük taze tezgâh balıkları ve mezeler anında cebinizde açılsın."
+              title="Masaüstü Karekodu (Ortak Giriş)"
+              desc="Masalara yapıştırılacak tek karekoddur. Okutulduğunda; Web Sitesi, Dijital Menü, Yorum Yap ve Instagram bağlantılarını içeren ortak portal açılır."
               text={menuUrl}
-              name="menüyü aç"
-              filename="menu"
+              name="portalı aç"
+              filename="masa_karekodu_ortak_portal"
             />
 
             <QRCard

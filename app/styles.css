@@ -1452,7 +1452,7 @@ section { padding: 140px 0; position: relative; }
 .sig-img {
   position: absolute;
   inset: -10% 0 -10% 0;
-  background: url('https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+  background: url('/gorsel/cupra.jpeg') center/cover no-repeat;
   filter: saturate(1.05) brightness(.88);
   will-change: transform;
 }

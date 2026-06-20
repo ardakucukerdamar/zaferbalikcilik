@@ -1,116 +1,27 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { Category, MenuItem } from "@/lib/data";
 
 interface MenuClientProps {
-  categories: Category[];
-  menuItems: MenuItem[];
+  categories: any[];
+  menuItems: any[];
   settings: Record<string, string>;
 }
 
-export default function MenuClient({ categories, menuItems, settings }: MenuClientProps) {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [activeFilter, setActiveFilter] = useState("all");
-  const [activeCategory, setActiveCategory] = useState("");
-  const [isStuck, setIsStuck] = useState(false);
+export default function MenuClient({ settings }: MenuClientProps) {
+  const [activeTab, setActiveTab] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
-  const categoryRefs = useRef<Record<string, HTMLElement | null>>({});
-  const toolbarRef = useRef<HTMLDivElement>(null);
-  const catsNavRef = useRef<HTMLDivElement>(null);
-
-  // 1. Sticky Toolbar Stuck State
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsStuck(window.scrollY > 8);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // 2. Scroll Spy: Track active category
-  useEffect(() => {
-    const handleScrollSpy = () => {
-      const probe = window.scrollY + 220; // threshold
-      let active = "";
-
-      // Find which section is currently active
-      for (const cat of categories) {
-        const el = categoryRefs.current[cat.slug];
-        if (el && el.offsetTop <= probe) {
-          active = cat.slug;
-        }
-      }
-
-      if (active) {
-        setActiveCategory(active);
-        // Scroll active category nav item into view
-        const activeLink = document.getElementById(`nav-link-${active}`);
-        const wrap = catsNavRef.current;
-        if (wrap && activeLink) {
-          const r = activeLink.getBoundingClientRect();
-          const wr = wrap.getBoundingClientRect();
-          if (r.left < wr.left + 12 || r.right > wr.right - 12) {
-            wrap.scrollTo({
-              left: activeLink.offsetLeft - wrap.clientWidth / 2 + activeLink.offsetWidth / 2,
-              behavior: "smooth",
-            });
-          }
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScrollSpy, { passive: true });
-    handleScrollSpy();
-    return () => window.removeEventListener("scroll", handleScrollSpy);
-  }, [categories]);
-
-  // 3. Smooth scroll to category
-  const scrollToCategory = (slug: string) => {
-    const target = categoryRefs.current[slug];
-    if (!target) return;
-    const toolbarH = toolbarRef.current?.offsetHeight || 0;
-    const top = target.getBoundingClientRect().top + window.scrollY - toolbarH - 16;
-    window.scrollTo({ top, behavior: "smooth" });
-  };
-
-  // 4. Filtering Logic
-  const getFilteredItems = (catId: string) => {
-    const q = searchQuery.toLowerCase().trim();
-    return menuItems.filter((item) => {
-      if (item.category_id !== catId) return false;
-
-      // Filter chip match
-      const tagsStr = (item.tags || []).join(" ").toLowerCase();
-      const tagMatch = activeFilter === "all" || tagsStr.includes(activeFilter);
-
-      // Search query match
-      const textMatch =
-        !q ||
-        item.name.toLowerCase().includes(q) ||
-        (item.description || "").toLowerCase().includes(q);
-
-      return tagMatch && textMatch;
-    });
-  };
-
-  // Group beverage items for columns
-  const getBeverageGroup = (item: MenuItem) => {
-    const t = (item.tags?.[0] || "").toLowerCase();
-    if (t.includes("şarap") || t.includes("sarap") || t.includes("sek")) return "sek";
-    if (t.includes("bira")) return "bira";
-    if (t.includes("alkols")) return "alkolsüz";
-    if (t.includes("sıcak") || t.includes("sicak")) return "sıcak";
-    return "alkolsüz"; // default fallback
-  };
-
-  const hasVisibleItems = (catId: string) => {
-    return getFilteredItems(catId).length > 0;
-  };
-
-  const formattedPhone = (settings.phone || "0544 352 73 71").replace(/\s+/g, "").replace("+", "");
+  // Parse menu images from settings or use initial fallback
+  const menuImages = settings.menu_images
+    ? JSON.parse(settings.menu_images)
+    : [
+        { "title": "Balıklar", "image_url": "/menugorseller/baliklar.jpeg" },
+        { "title": "Ara Sıcaklar", "image_url": "/menugorseller/arasicaklar.jpeg" },
+        { "title": "İçecekler", "image_url": "/menugorseller/icecekler.jpeg" },
+        { "title": "Tatlılar", "image_url": "/menugorseller/tatlilar.jpeg" }
+      ];
 
   return (
     <div className="menu-page">
@@ -121,17 +32,13 @@ export default function MenuClient({ categories, menuItems, settings }: MenuClie
 
         <div className="container m-hero-inner">
           <Link href="/" className="m-back">
-            <svg width="16" height="16">
-              <use href="#i-arrow-left" />
-            </svg>
             <span>Ana sayfa</span>
           </Link>
 
           <div className="m-hero-brand">
-            <span className="brand-mark">
-              <svg width="22" height="22">
-                <use href="#i-anchor" />
-              </svg>
+            <span className="brand-logo-container" style={{ width: "48px", height: "48px", borderRadius: "50%", overflow: "hidden", display: "grid", placeItems: "center", background: "#fff" }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo.jpeg" alt="Zafer Balıkçılık Logo" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </span>
             <div>
               <strong>Zafer Balıkçılık</strong>
@@ -139,18 +46,17 @@ export default function MenuClient({ categories, menuItems, settings }: MenuClie
             </div>
           </div>
 
-          <p className="m-kicker">№ 04 · Menü</p>
+          <p className="m-kicker">Menü</p>
           <h1 className="m-title">
             <span>Mevsim</span> <em>sofrası.</em>
           </h1>
           <p className="m-sub">
-            Mevsim balığı, taze salata ve pleyt ızgara. Fiyatlar bilgi amaçlıdır; günlük tedarike göre değişebilir.
-            Güncel için telefonla doğrulayın.
+            Günlük balık tezgâhımız, usta eli ara sıcaklarımız ve içecek seçeneklerimizle lezzet kartımız. Fiyatlar tedarike göre güncellenebilir.
           </p>
 
           <div className="m-hero-actions">
             <a href={`tel:${settings.phone_intl || '+905443527371'}`} className="btn btn-gold">
-              Ara · {settings.phone || "0544 352 73 71"}
+              Ara: {settings.phone || "0544 352 73 71"}
             </a>
             <a
               href="https://www.google.com/maps/search/?api=1&query=Zafer+Bal%C4%B1k%C3%A7%C4%B1l%C4%B1k+Artur+G%C3%B6me%C3%A7+Bal%C4%B1kesir"
@@ -165,217 +71,78 @@ export default function MenuClient({ categories, menuItems, settings }: MenuClie
       </header>
 
       {/* STICKY TOOLBAR */}
-      <div ref={toolbarRef} className={`m-toolbar ${isStuck ? "stuck" : ""}`} id="mToolbar">
-        <div className="container m-toolbar-inner">
-          <nav ref={catsNavRef} className="m-cats" id="mCats" aria-label="Kategoriler">
-            {categories.map((cat) => {
-              // Only show category in nav if it has visible items under current search/filters
-              const visible = hasVisibleItems(cat.id);
-              if (!visible && (searchQuery || activeFilter !== "all")) return null;
-
-              return (
-                <button
-                  key={cat.id}
-                  id={`nav-link-${cat.slug}`}
-                  onClick={() => scrollToCategory(cat.slug)}
-                  className={activeCategory === cat.slug ? "active" : ""}
-                  style={{ background: "none", border: "none", cursor: "pointer" }}
-                >
-                  {cat.name}
-                </button>
-              );
-            })}
+      <div className="m-toolbar stuck" id="mToolbar">
+        <div className="container m-toolbar-inner" style={{ padding: "14px 0" }}>
+          <nav className="m-cats" id="mCats" aria-label="Kategoriler" style={{ justifyContent: "center" }}>
+            {menuImages.map((sheet: any, idx: number) => (
+              <button
+                key={idx}
+                onClick={() => setActiveTab(idx)}
+                className={`m-cat-btn ${activeTab === idx ? "active" : ""}`}
+                style={{
+                  background: activeTab === idx ? "var(--ink)" : "transparent",
+                  color: activeTab === idx ? "var(--paper)" : "var(--ink-soft)",
+                  border: "1px solid " + (activeTab === idx ? "var(--ink)" : "var(--line)"),
+                  padding: "10px 24px",
+                  borderRadius: "999px",
+                  fontSize: "0.85rem",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  margin: "0 4px",
+                  transition: "all 0.25s ease"
+                }}
+              >
+                {sheet.title}
+              </button>
+            ))}
           </nav>
-
-          <div className="m-tool-actions">
-            <div className="m-search">
-              <svg width="15" height="15">
-                <use href="#i-search" />
-              </svg>
-              <input
-                id="mSearch"
-                type="search"
-                placeholder="Ara: çupra, haydari, rakı…"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-              {searchQuery && (
-                <button
-                  id="mSearchClear"
-                  aria-label="Temizle"
-                  onClick={() => setSearchQuery("")}
-                >
-                  <svg width="14" height="14">
-                    <use href="#i-close" />
-                  </svg>
-                </button>
-              )}
-            </div>
-            <div className="m-filters">
-              {[
-                { label: "Tümü", value: "all" },
-                { label: "Şef", value: "sef" },
-                { label: "Mevsim", value: "mevsim" },
-                { label: "Vegan", value: "vegan" },
-              ].map((chip) => (
-                <button
-                  key={chip.value}
-                  onClick={() => setActiveFilter(chip.value)}
-                  className={`m-chip ${activeFilter === chip.value ? "active" : ""}`}
-                >
-                  {chip.label}
-                </button>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
 
       {/* MENU CONTENT */}
-      <main className="m-main">
+      <main className="m-main" style={{ padding: "40px 0" }}>
         <div className="container">
-          {categories.map((cat, index) => {
-            const filteredItems = getFilteredItems(cat.id);
-
-            // Skip rendering if no items match
-            if (filteredItems.length === 0) return null;
-
-            return (
-              <section
-                key={cat.id}
-                ref={(el) => {
-                  categoryRefs.current[cat.slug] = el;
-                }}
-                className="m-cat"
-                id={cat.slug}
+          {menuImages[activeTab] ? (
+            <div className="m-sheet-container">
+              <div 
+                className="m-sheet-card"
+                onClick={() => setLightboxOpen(true)}
               >
-                <header className="m-cat-head">
-                  <span className="m-cat-num">№ {String(index + 1).padStart(2, "0")}</span>
-                  <h2 className="display">
-                    {cat.name.split(" ").map((w, idx, arr) => {
-                      if (idx === arr.length - 1) return <em key={idx}>{w}</em>;
-                      return <span key={idx}>{w} </span>;
-                    })}
-                  </h2>
-                  <p>
-                    {cat.slug === "bugun" && "Sabah tezgâhına gelen, ustanın seçtiği üç imza tabak."}
-                    {cat.slug === "mezeler" && "Sabah hazırlanır, akşam sofraya iner. Ev yapımı, ustanın eli."}
-                    {cat.slug === "sicak" && "Tencere ve tavadan; ortadan paylaşılmaya uygun."}
-                    {cat.slug === "izgara" && "Mevsime göre değişir, ustanın elinde közlenir."}
-                    {cat.slug === "tava" && "Mısır unu kabuk, sıcak yağ; klasik."}
-                    {cat.slug === "salata" && "Balığın hafif yoldaşları."}
-                    {cat.slug === "icecek" && "Balığın yanına yakışanlar — alkollü ve alkolsüz."}
-                    {cat.slug === "tatli" && "Akşamı tatlıya bağlamak için."}
-                  </p>
-                </header>
-
-                {/* Render style depending on category slug */}
-                {cat.slug === "bugun" ? (
-                  <div className="m-feature">
-                    {filteredItems.map((item, itemIdx) => {
-                      const isLarge = itemIdx === 0;
-                      return (
-                        <div
-                          key={item.id}
-                          className={`mf-card ${isLarge ? "mf-card-lg" : ""}`}
-                          data-tags={(item.tags || []).join(" ")}
-                        >
-                          {item.image_url && (
-                            <div
-                              className={`mf-img ${!isLarge ? "mf-img-sm" : ""}`}
-                              style={{ backgroundImage: `url('${item.image_url}')` }}
-                            >
-                              {isLarge && <span className="mf-stamp">şefin imzası</span>}
-                            </div>
-                          )}
-                          <div className="mf-body">
-                            <div className="mf-head">
-                              <span className="mf-num">{String(itemIdx + 1).padStart(2, "0")}</span>
-                              <h3>{item.name}</h3>
-                              <span className="mf-price">
-                                <i>₺</i>
-                                {item.price}
-                              </span>
-                            </div>
-                            {item.description && <p>{item.description}</p>}
-                            {item.tags && item.tags.length > 0 && (
-                              <ul className="mf-tags">
-                                {item.tags.map((t, tIdx) => (
-                                  <li key={tIdx}>{t}</li>
-                                ))}
-                              </ul>
-                            )}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                ) : cat.slug === "icecek" ? (
-                  <div className="m-cols">
-                    {[
-                      { key: "sek", title: "Sek & Şarap" },
-                      { key: "bira", title: "Bira" },
-                      { key: "alkolsüz", title: "Alkolsüz" },
-                      { key: "sıcak", title: "Sıcak" },
-                    ].map((group) => {
-                      const groupItems = filteredItems.filter(
-                        (item) => getBeverageGroup(item) === group.key
-                      );
-                      if (groupItems.length === 0) return null;
-
-                      return (
-                        <div key={group.key} className="m-col">
-                          <h3 className="m-col-title">{group.title}</h3>
-                          <ul className="m-mini">
-                            {groupItems.map((item) => (
-                              <li key={item.id}>
-                                <span>{item.name}</span>
-                                <i>{item.price}</i>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      );
-                    })}
-                  </div>
-                ) : (
-                  <div className="m-list">
-                    {filteredItems.map((item, itemIdx) => (
-                      <article
-                        key={item.id}
-                        className="m-item"
-                        data-tags={(item.tags || []).join(" ")}
-                      >
-                        <div className="mi-head">
-                          <span className="mi-num">{String(itemIdx + 1).padStart(2, "0")}</span>
-                          <h4>{item.name}</h4>
-                          <span className="mi-dots"></span>
-                          <span className="mi-price">{item.price}</span>
-                        </div>
-                        {item.description && <p>{item.description}</p>}
-                      </article>
-                    ))}
-                  </div>
-                )}
-              </section>
-            );
-          })}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img 
+                  src={menuImages[activeTab].image_url} 
+                  alt={menuImages[activeTab].title}
+                  className="m-sheet-img"
+                />
+                <div className="m-sheet-zoom-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>Yakınlaştırmak için dokunun</span>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <p className="gp-empty">Kategoriye ait menü görseli eklenmemiş.</p>
+          )}
 
           {/* NOTES CARD */}
-          <section className="m-notes">
-            <div className="m-notes-card">
-              <h3>Notlar</h3>
+          <section className="m-notes" style={{ marginTop: "50px" }}>
+            <div className="m-notes-card" style={{ padding: "36px" }}>
+              <h3 style={{ fontSize: "1.15rem", marginBottom: "16px" }}>Bilgilendirme</h3>
               <ul>
                 <li>
-                  Fiyatlar <em>bilgi amaçlıdır</em>; günlük tedarike ve mevsime göre değişebilir. Güncel için telefonla
-                  doğrulayın.
+                  Fiyatlar ve menü içerikleri mevsimsel tedarike göre değişiklik gösterebilir.
                 </li>
                 <li>
-                  Mevsim balıkları her sabah tezgâhımıza taze ulaşır. Stokta olmayan balıklar için ustamızdan öneri
-                  alabilirsiniz.
+                  Alerjen hassasiyetiniz varsa lütfen siparişten önce personelimize bilgi veriniz.
                 </li>
-                <li>Alerjeniz varsa lütfen siparişten önce bildirin; meze ve sosları size göre düzenleriz.</li>
-                <li>Toplamda 10 masa kapasitemiz vardır. Rahatınız için rezervasyon önerilir.</li>
+                <li>
+                  Restoranımız 10 masa kapasitelidir. Rezervasyon yapılması önerilir.
+                </li>
               </ul>
             </div>
           </section>
@@ -417,9 +184,50 @@ export default function MenuClient({ categories, menuItems, settings }: MenuClie
           id="mTopBtn"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
-          ↑ Üste
+          Üste Git
         </button>
       </div>
+
+      {/* Lightbox */}
+      {lightboxOpen && menuImages[activeTab] && (
+        <div 
+          className="lightbox open" 
+          id="lightbox" 
+          aria-hidden="false" 
+          onClick={() => setLightboxOpen(false)}
+          style={{ cursor: "zoom-out" }}
+        >
+          <button className="lb-close" aria-label="Kapat" onClick={() => setLightboxOpen(false)}>
+            <svg width="22" height="22" viewBox="0 0 24 24">
+              <path
+                d="M6 6l12 12M18 6 6 18"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+              />
+            </svg>
+          </button>
+          
+          <div className="lb-figure" onClick={(e) => e.stopPropagation()} style={{ cursor: "default" }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={menuImages[activeTab].image_url} 
+              alt={menuImages[activeTab].title} 
+              style={{
+                maxWidth: "96vw",
+                maxHeight: "86vh",
+                objectFit: "contain",
+                borderRadius: "4px",
+                boxShadow: "0 30px 80px rgba(0,0,0,0.8)"
+              }}
+            />
+            <figcaption style={{ color: "var(--paper)", marginTop: "12px", textAlign: "center", fontStyle: "italic", fontSize: "1.1rem" }}>
+              {menuImages[activeTab].title}
+            </figcaption>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -300,17 +300,8 @@ export default function LayoutClient({
       {!loaded && (
         <div className={`loader ${loaded ? "loaded" : ""}`} id="loader" aria-hidden="true">
           <div className="loader-inner">
-            <div className="loader-mark">
-              <svg viewBox="0 0 64 64" width="38" height="38" aria-hidden="true">
-                <path
-                  d="M32 6a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0 10v32m-12-20h24M12 38c2 9 9 14 20 14s18-5 20-14"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+            <div className="loader-mark" style={{ width: "80px", height: "80px", borderRadius: "50%", overflow: "hidden", display: "grid", placeItems: "center", background: "#fff", border: "2px solid var(--gold)" }}>
+              <img src="/logo.jpeg" alt="Logo" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
             <div className="loader-name">
               <span>Z</span><span>A</span><span>F</span><span>E</span><span>R</span>
@@ -417,10 +408,8 @@ export default function LayoutClient({
       <header className={`header ${pathname === "/galeri" ? "header-light-page" : ""}`} id="header">
         <div className="container header-inner">
           <Link href="/" className="brand" data-cursor="home">
-            <span className="brand-mark">
-              <svg width="22" height="22">
-                <use href="#i-anchor" />
-              </svg>
+            <span className="brand-mark" style={{ width: "32px", height: "32px", borderRadius: "50%", overflow: "hidden", display: "grid", placeItems: "center", background: "#fff" }}>
+              <img src="/logo.jpeg" alt="Logo" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </span>
             <span className="brand-text">
               <strong>Zafer Balıkçılık</strong>

@@ -518,3 +518,61 @@
   .m-cat { padding: 44px 0; }
   .mi-head h4 { font-size: 1.05rem; }
 }
+
+/* ============================================================
+   STATIC MENU SHEET STYLING
+   ============================================================ */
+.m-sheet-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.m-sheet-card {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--paper-2);
+  box-shadow: 0 10px 30px rgba(10,20,29,0.06);
+  cursor: zoom-in;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.m-sheet-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(10,20,29,0.12);
+}
+
+.m-sheet-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.m-sheet-zoom-badge {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(10,20,29,0.78);
+  backdrop-filter: blur(8px);
+  color: var(--paper);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.85;
+  transition: opacity 0.25s ease, background 0.25s ease;
+}
+
+.m-sheet-card:hover .m-sheet-zoom-badge {
+  opacity: 1;
+  background: var(--ink-deep);
+}
+

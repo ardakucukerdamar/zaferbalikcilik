@@ -24,10 +24,10 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
       console.error("Error parsing board_items:", e);
     }
     return [
-      { tag: "öne çıkan", name: "Çupra", note: "pleyt ızgara · 12–14 dk" },
+      { tag: "öne çıkan", name: "Çipura", note: "pleyt ızgara · 12–14 dk" },
       { tag: "mevsim", name: "Karagöz", note: "pleyt ızgara · ½ kg" },
-      { tag: "klasik", name: "Lakerda", note: "ince dilim · taze meze" },
-      { tag: "sınırlı", name: "Kalamar", note: "pleyt ızgara veya tava" },
+      { tag: "klasik", name: "Lakerda", note: "ince dilim · meze" },
+      { tag: "sınırlı", name: "Kalamar", note: "sadece tava" },
     ];
   })();
 
@@ -265,7 +265,7 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
         </div>
 
         <div className="container hero-content">
-          <p className="kicker"><i></i> Balıkesir · Artur Gömeç · denize <em>120 m</em></p>
+          <p className="kicker"><i></i> Balıkesir · Artur Gömeç</p>
 
           <h1 className="hero-title">
             {(settings.hero_title || "Denizden sofranıza tazelik").split(" ").map((word, idx) => {
@@ -305,9 +305,9 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
 
           <div className="hero-foot" data-fade>
             <div className="hf-item">
-              <span className="hf-num">4,4</span>
-              <span className="hf-bar"><i style={{ width: "88%" }}></i></span>
-              <small>Google · 14+ yorum</small>
+              <span className="hf-num">4,6</span>
+              <span className="hf-bar"><i style={{ width: "92%" }}></i></span>
+              <small>Google · 20+ yorum</small>
             </div>
             <div className="hf-item">
               <span className="hf-num">
@@ -434,11 +434,11 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
 
             <div className="story-stats">
               <div className="stat">
-                <strong data-count="4.4" data-decimals="1">4.4</strong>
+                <strong data-count="4.6" data-decimals="1">4.6</strong>
                 <span>Google puanı</span>
               </div>
               <div className="stat">
-                <strong data-count="14" data-suffix="+">14+</strong>
+                <strong data-count="20" data-suffix="+">20+</strong>
                 <span>memnun yorum</span>
               </div>
               <div className="stat">
@@ -483,12 +483,12 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
               </div>
             </article>
 
-            <article className="bento-card bento-img" data-tilt style={{ backgroundImage: "url('https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=1000&q=80')" }}>
+            <article className="bento-card bento-img" data-tilt style={{ backgroundImage: "url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1000&q=80')" }}>
               <div className="bc-overlay"></div>
               <div className="bc-body">
-                <div className="bc-icon"><svg width="22" height="22"><use href="#i-leaf" /></svg></div>
-                <h3>Mevsim meyvesi</h3>
-                <p>Hangi ay neyin tadı varsa, sofranın boyu o.</p>
+                <div className="bc-icon"><svg width="22" height="22"><use href="#i-flame" /></svg></div>
+                <h3>Pleyt ızgara</h3>
+                <p>Izgara özeni, usta pişirimi.</p>
                 <span className="bc-num">02</span>
               </div>
             </article>
@@ -498,28 +498,8 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
               <div className="bc-body">
                 <div className="bc-icon"><svg width="22" height="22"><use href="#i-wave" /></svg></div>
                 <h3>Açık hava sofrası</h3>
-                <p>Denize 120 m mesafede, esinti eşliğinde uzun akşamlar. Kapalı salonda 10 masalık kapasite.</p>
+                <p>Esinti eşliğinde uzun akşamlar. Kapalı salonda 10 masalık kapasite.</p>
                 <span className="bc-num">03</span>
-              </div>
-            </article>
-
-            <article className="bento-card bento-img" data-tilt style={{ backgroundImage: "url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1000&q=80')" }}>
-              <div className="bc-overlay"></div>
-              <div className="bc-body">
-                <div className="bc-icon"><svg width="22" height="22"><use href="#i-flame" /></svg></div>
-                <h3>Pleyt ızgara</h3>
-                <p>Izgara özeni, usta pişirimi.</p>
-                <span className="bc-num">04</span>
-              </div>
-            </article>
-
-            <article className="bento-card bento-img" data-tilt style={{ backgroundImage: "url('https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=1200&q=80')" }}>
-              <div className="bc-overlay"></div>
-              <div className="bc-body">
-                <div className="bc-icon"><svg width="22" height="22"><use href="#i-glass" /></svg></div>
-                <h3>Taze içecekler</h3>
-                <p>Taze şalgam, ayran ve serinletici alkolsüz içecekler.</p>
-                <span className="bc-num">05</span>
               </div>
             </article>
           </div>
@@ -592,7 +572,7 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
 
             <ul className="sig-pairs" data-fade>
               <li><i>yan</i> {settings.signature_side || "deniz börülcesi · roka"}</li>
-              <li><i>içecek</i> {settings.signature_drink || "şalgam · ayran · asitli içecekler"}</li>
+              <li><i>içecek</i> {settings.signature_drink || "şalgam · soğuk çay · asitli içecekler"}</li>
               <li><i>pişirme</i> {settings.signature_cooking || "pleyt ızgara · 12—14 dk"}</li>
               <li><i>mevsim</i> {settings.signature_season || "kasım — şubat aralığı"}</li>
             </ul>
@@ -707,10 +687,10 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
               <h2 className="display"><em>Sofranın</em> dilinden.</h2>
             </div>
             <div className="rating">
-              <span className="rating-num">4,4</span>
+              <span className="rating-num">4,6</span>
               <div>
                 <span className="rating-stars" aria-hidden="true">★★★★<i>★</i></span>
-                <small>14+ google yorumu</small>
+                <small>20+ google yorumu</small>
               </div>
             </div>
           </header>
@@ -919,7 +899,9 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
       <footer className="footer">
         <div className="container footer-grid">
           <div className="footer-brand">
-            <span className="brand-mark"><svg width="22" height="22"><use href="#i-anchor" /></svg></span>
+            <span className="brand-mark" style={{ width: "32px", height: "32px", borderRadius: "50%", overflow: "hidden", display: "grid", placeItems: "center", background: "#fff", marginBottom: "16px" }}>
+              <img src="/logo.jpeg" alt="Logo" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </span>
             <strong>Zafer Balıkçılık <em>Artur</em></strong>
             <p>Artur&apos;un denize bakan deniz sofrası. Günlük taze, üç kuşak ustalık.</p>
           </div>

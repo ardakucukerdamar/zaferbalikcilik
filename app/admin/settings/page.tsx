@@ -35,13 +35,15 @@ export default function AdminSettingsPage() {
     signature_drink: "",
     signature_cooking: "",
     signature_season: "",
+    instagram_url: "",
+    google_review_url: "",
   });
 
   const [localBoardItems, setLocalBoardItems] = useState<BoardItem[]>([
-    { tag: "öne çıkan", name: "Çupra", note: "pleyt ızgara · 12–14 dk" },
+    { tag: "öne çıkan", name: "Çipura", note: "pleyt ızgara · 12–14 dk" },
     { tag: "mevsim", name: "Karagöz", note: "pleyt ızgara · ½ kg" },
-    { tag: "klasik", name: "Lakerda", note: "ince dilim · taze meze" },
-    { tag: "sınırlı", name: "Kalamar", note: "ızgara · pleyt ızgara veya tava" },
+    { tag: "klasik", name: "Lakerda", note: "ince dilim · meze" },
+    { tag: "sınırlı", name: "Kalamar", note: "sadece tava" },
   ]);
 
   const [localFishCalendar, setLocalFishCalendar] = useState<FishCalendarItem[]>([
@@ -71,20 +73,22 @@ export default function AdminSettingsPage() {
         setSettings({
           phone: obj.phone || "0544 352 73 71",
           phone_intl: obj.phone_intl || "+905443527371",
-          address: obj.address || "Şok yanı, Artur Gömeç Artur girişi · Balıkesir",
+          address: obj.address || "Şok yanı, Artur Gömeç girişi · Balıkesir",
           hours_open: obj.hours_open || "08:00",
           hours_close: obj.hours_close || "21:00",
           announcement: obj.announcement || "",
-          capacity: obj.capacity || "70",
+          capacity: obj.capacity || "10",
           hero_title: obj.hero_title || "Denizden sofranıza tazelik",
-          hero_desc: obj.hero_desc || "Artur Gömeç'ın akşam esintisinde, günlük ağdan tezgâha, tezgâhtan sofraya. Zafer Balıkçılık Artur, üç kuşak balık ustalığını alçak sesle anlatan bir deniz sofrası.",
-          manifesto_text: obj.manifesto_text || "Balık günlük olur. Sofra sabırlı. Biz aceleyi tezgâhın değil, tencerenin hızına bırakırız. Artur Gömeç'ın tuzlu rüzgârı mezeyi, pleyt ızgara balığı pişirir; biz yalnızca doğru anı beklemeyi öğretiriz.",
-          signature_name: obj.signature_name || "Pleyt ızgarada çipura.",
-          signature_desc: obj.signature_desc || "Günün tezgâhından, ustanın seçtiği çupra; tuzlanır, dinlendirilir, közün üstünde sabırla pişirilir. Yanında zeytinyağlı semizotu, deniz börülcesi ve roka. Bir limon, bir kadeh; gerisi denizin işi.",
-          signature_side: obj.signature_side || "semizotu · börülce · roka",
-          signature_drink: obj.signature_drink || "sek rakı · beyaz şarap",
+          hero_desc: obj.hero_desc || "Artur Gömeç'in akşam esintisinde, günlük ağdan tezgâha, tezgâhtan sofraya. Zafer Balıkçılık Artur, üç kuşak balık ustalığını alçak sesle anlatan bir deniz sofrası.",
+          manifesto_text: obj.manifesto_text || "Balık günlük olur. Sofra sabırlı. Biz aceleyi tezgâhın değil, tencerenin hızına bırakırız. Artur'un tuzlu rüzgârı mezeyi, pleyt ızgara balığı pişirir; biz yalnızca doğru anı beklemeyi öğretiriz.",
+          signature_name: obj.signature_name || "Pleyt Izgarada Çupra",
+          signature_desc: obj.signature_desc || "Günün tezgâhından, ustanın seçtiği çupra; tezgâhtan pleyt ızgaraya uzanan lezzet.",
+          signature_side: obj.signature_side || "deniz börülcesi · roka",
+          signature_drink: obj.signature_drink || "şalgam · fuse tea limon · fuse tea şeftali · cappy şeftali",
           signature_cooking: obj.signature_cooking || "pleyt ızgara · 12—14 dk",
           signature_season: obj.signature_season || "kasım — şubat aralığı",
+          instagram_url: obj.instagram_url || "https://www.instagram.com/zaferbalikcilikartur/",
+          google_review_url: obj.google_review_url || "https://g.page/r/...",
         });
 
         if (obj.board_items) {
@@ -334,7 +338,37 @@ export default function AdminSettingsPage() {
                 value={settings.address}
                 onChange={(e) => handleChange("address", e.target.value)}
                 className="w-full px-4 py-2.5 bg-[#070e14] border border-[#c9a36b]/15 focus:border-[#c9a36b] rounded-lg outline-none text-slate-200 text-sm"
-                placeholder="Şok yanı, Artur Gömeç Artur girişi · Balıkesir"
+                placeholder="Şok yanı, Artur Gömeç girişi · Balıkesir"
+              />
+            </div>
+
+            {/* Google Review URL */}
+            <div className="space-y-1.5">
+              <label className="text-xs uppercase tracking-wider text-[#c9a36b] font-semibold">
+                Google Yorum Yapma Linki
+              </label>
+              <input
+                type="url"
+                required
+                value={settings.google_review_url}
+                onChange={(e) => handleChange("google_review_url", e.target.value)}
+                className="w-full px-4 py-2.5 bg-[#070e14] border border-[#c9a36b]/15 focus:border-[#c9a36b] rounded-lg outline-none text-slate-200 text-sm"
+                placeholder="https://g.page/r/.../review"
+              />
+            </div>
+
+            {/* Instagram URL */}
+            <div className="space-y-1.5">
+              <label className="text-xs uppercase tracking-wider text-[#c9a36b] font-semibold">
+                Instagram Profil Linki
+              </label>
+              <input
+                type="url"
+                required
+                value={settings.instagram_url}
+                onChange={(e) => handleChange("instagram_url", e.target.value)}
+                className="w-full px-4 py-2.5 bg-[#070e14] border border-[#c9a36b]/15 focus:border-[#c9a36b] rounded-lg outline-none text-slate-200 text-sm"
+                placeholder="https://instagram.com/zaferbalikcilikartur"
               />
             </div>
           </div>
