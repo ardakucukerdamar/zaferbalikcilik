@@ -33,16 +33,7 @@ export default function MenuClient({ settings }: MenuClientProps) {
         <div className="container m-hero-inner">
 
 
-          <div className="m-hero-brand">
-            <span className="brand-logo-container" style={{ width: "48px", height: "48px", borderRadius: "50%", overflow: "hidden", display: "grid", placeItems: "center", background: "#fff" }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logo.jpeg" alt="Zafer Balıkçılık Logo" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-            </span>
-            <div>
-              <strong>Zafer Balıkçılık</strong>
-              <small>Artur Gömeç · Balıkesir</small>
-            </div>
-          </div>
+
 
           <p className="m-kicker">Menü</p>
           <h1 className="m-title">

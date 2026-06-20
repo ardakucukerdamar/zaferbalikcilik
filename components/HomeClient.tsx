@@ -459,7 +459,8 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
           </header>
 
           <div className="bento">
-            <article className="bento-card bento-img" data-tilt style={{ backgroundImage: "url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1000&q=80')" }}>
+            <article className="bento-card bento-img">
+              <div className="bento-bg-img" style={{ backgroundImage: "url('/gorsel/bento_chef_hands.png')" }}></div>
               <div className="bc-overlay"></div>
               <div className="bc-body">
                 <h3>Usta eli</h3>
@@ -467,7 +468,8 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
               </div>
             </article>
 
-            <article className="bento-card bento-img" data-tilt style={{ backgroundImage: "url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1000&q=80')" }}>
+            <article className="bento-card bento-img">
+              <div className="bento-bg-img" style={{ backgroundImage: "url('/gorsel/bento_grilled_fish.png')" }}></div>
               <div className="bc-overlay"></div>
               <div className="bc-body">
                 <h3>Pleyt ızgara</h3>
@@ -475,7 +477,8 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
               </div>
             </article>
 
-            <article className="bento-card bento-img" data-tilt style={{ backgroundImage: "url('https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?auto=format&fit=crop&w=1200&q=80')" }}>
+            <article className="bento-card bento-img">
+              <div className="bento-bg-img" style={{ backgroundImage: "url('/gorsel/bento_seaside_table.png')" }}></div>
               <div className="bc-overlay"></div>
               <div className="bc-body">
                 <h3>Açık hava sofrası</h3>

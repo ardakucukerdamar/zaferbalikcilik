@@ -46,25 +46,7 @@
 }
 .m-back:hover { background: rgba(246,239,225,.14); color: var(--paper); }
 
-.m-hero-brand {
-  display: flex; align-items: center; gap: 14px;
-  margin-bottom: 40px;
-}
-.m-hero-brand .brand-mark { width: 48px; height: 48px; }
-.m-hero-brand strong {
-  display: block;
-  font-family: var(--display);
-  font-weight: 800;
-  font-size: 1.18rem;
-  color: var(--paper);
-  letter-spacing: -.01em;
-}
-.m-hero-brand small {
-  font-size: .68rem;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: rgba(246,239,225,.55);
-}
+/* .m-hero-brand styles removed */
 
 .m-kicker {
   font-size: .72rem;
@@ -509,7 +491,7 @@
   .m-toolbar-inner { gap: 10px; }
 }
 @media (max-width: 600px) {
-  .m-hero { padding: 56px 0 64px; min-height: 56vh; }
+  .m-hero { padding: 96px 0 64px; min-height: 56vh; }
   .m-hero-actions .btn { flex: 1; justify-content: center; }
   .m-cols { grid-template-columns: 1fr; gap: 16px; }
   .m-notes-card { padding: 30px 22px; }
