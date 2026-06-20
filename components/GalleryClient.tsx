@@ -99,9 +99,6 @@ export default function GalleryClient({ gallery }: GalleryClientProps) {
 
       <header className="gp-hero">
         <div className="container">
-          <Link href="/" className="gp-back">
-            ← Ana sayfa
-          </Link>
           <p className="section-num">№ 07 · Galeri</p>
           <h1>
             Mekândan, <em>sofradan,</em>

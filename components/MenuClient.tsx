@@ -31,9 +31,7 @@ export default function MenuClient({ settings }: MenuClientProps) {
         <div className="m-hero-grad" aria-hidden="true"></div>
 
         <div className="container m-hero-inner">
-          <Link href="/" className="m-back">
-            <span>Ana sayfa</span>
-          </Link>
+
 
           <div className="m-hero-brand">
             <span className="brand-logo-container" style={{ width: "48px", height: "48px", borderRadius: "50%", overflow: "hidden", display: "grid", placeItems: "center", background: "#fff" }}>

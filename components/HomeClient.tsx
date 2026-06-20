@@ -258,11 +258,7 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
           <div className="hero-vignette"></div>
         </div>
 
-        <div className="hero-marks">
-          <span className="hero-mark hm-1">Est. <em>Artur Gömeç</em></span>
-          <span className="hero-mark hm-2">39°N · 27°E</span>
-          <span className="hero-mark hm-3">№ 04</span>
-        </div>
+
 
         <div className="container hero-content">
           <p className="kicker"><i></i> Balıkesir · Artur Gömeç</p>
@@ -463,43 +459,27 @@ export default function HomeClient({ settings, gallery, reviews }: HomeClientPro
           </header>
 
           <div className="bento">
-            <article className="bento-card bento-feature" data-tilt data-cursor="öne çıkan">
-              <div className="bf-image" data-parallax="0.04"></div>
-              <div className="bf-overlay"></div>
-              <div className="bf-content">
-                <span className="chip">öne çıkan</span>
-                <h3>Günlük Tedarik</h3>
-                <p>Mevsim balıkları her sabah taze tezgâha; misafire bekletilmeden ulaşır.</p>
-              </div>
-            </article>
-
             <article className="bento-card bento-img" data-tilt style={{ backgroundImage: "url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1000&q=80')" }}>
               <div className="bc-overlay"></div>
               <div className="bc-body">
-                <div className="bc-icon"><svg width="22" height="22"><use href="#i-hand" /></svg></div>
                 <h3>Usta eli</h3>
                 <p>Üç kuşak süzgecinden geçmiş, yavaş öğrenilmiş bir mutfak.</p>
-                <span className="bc-num">01</span>
               </div>
             </article>
 
             <article className="bento-card bento-img" data-tilt style={{ backgroundImage: "url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1000&q=80')" }}>
               <div className="bc-overlay"></div>
               <div className="bc-body">
-                <div className="bc-icon"><svg width="22" height="22"><use href="#i-flame" /></svg></div>
                 <h3>Pleyt ızgara</h3>
                 <p>Izgara özeni, usta pişirimi.</p>
-                <span className="bc-num">02</span>
               </div>
             </article>
 
-            <article className="bento-card bento-wide bento-img" data-tilt style={{ backgroundImage: "url('https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?auto=format&fit=crop&w=1200&q=80')" }}>
+            <article className="bento-card bento-img" data-tilt style={{ backgroundImage: "url('https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?auto=format&fit=crop&w=1200&q=80')" }}>
               <div className="bc-overlay"></div>
               <div className="bc-body">
-                <div className="bc-icon"><svg width="22" height="22"><use href="#i-wave" /></svg></div>
                 <h3>Açık hava sofrası</h3>
                 <p>Esinti eşliğinde uzun akşamlar. Kapalı salonda 10 masalık kapasite.</p>
-                <span className="bc-num">03</span>
               </div>
             </article>
           </div>
