@@ -249,3 +249,69 @@
 .admin-wrapper ::-webkit-scrollbar-thumb:hover {
   background: rgba(201, 163, 107, 0.4);
 }
+
+/* ============================================================
+   KAREKOD PANELİ (QR CODE PANEL) STYLES
+   ============================================================ */
+.qr-grid-print {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 24px !important;
+}
+
+@media (max-width: 1024px) {
+  .qr-grid-print {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.qr-card {
+  background: rgba(12, 25, 36, 0.85) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(201, 163, 107, 0.15) !important;
+  border-radius: 12px !important;
+  padding: 30px 24px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  text-align: center !important;
+  min-height: 480px !important;
+  position: relative !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+.qr-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(201, 163, 107, 0.4) !important;
+  box-shadow: 0 15px 40px rgba(201, 163, 107, 0.15) !important;
+}
+
+.qr-canvas-wrap {
+  width: 200px !important;
+  height: 200px !important;
+  min-width: 200px !important;
+  min-height: 200px !important;
+  max-width: 200px !important;
+  max-height: 200px !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(201, 163, 107, 0.2) !important;
+  border-radius: 8px !important;
+  padding: 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-top: 40px !important;
+  margin-bottom: 20px !important;
+  overflow: hidden !important;
+}
+
+.qr-canvas-wrap canvas {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  display: block !important;
+}
+

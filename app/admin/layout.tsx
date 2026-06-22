@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
+import "../globals.css";
 import "../admin.css";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
